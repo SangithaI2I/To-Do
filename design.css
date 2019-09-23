@@ -1,0 +1,214 @@
+@font-face {
+    font-family:segoe;
+    src:url("segoe/seguisb.ttf");
+}
+@font-face {
+    font-family:segoe-regular;
+    src:url("segoe/segoe-regular.ttf");
+}
+@font-face {
+    font-family:segoe-Bold;
+    src:url("segoe/segoe-ui-bold.ttf");
+}
+.header {
+  background-color: #0E7BD8;
+  color: white;
+  text-align: left;
+}
+.to-doSign {
+    font-family:segoe;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 16px;
+    margin-left: 3.5%;
+    line-height: 48px;
+}
+body {
+    display: block;
+    margin: 0px;
+    padding:0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.sideBar {
+    font-family:segoe-regular;
+    height: 100%;
+    width: 28rem;
+    display: block;
+    position: relative;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+}
+
+.sideBar a {
+  text-decoration: none;
+  color: #4f4e4e;
+  display: block;
+}
+.sidebar-Icon {
+    padding: 0.2rem 0.8rem 1rem 0.9rem;
+}
+.sidebar-menuIcon {
+    padding: 1rem 0rem 2rem 0.4rem;
+    margin: 0rem;
+}
+.sideBar a:hover {
+  color: #f1f1f1;
+}
+.menuIconDivision {
+    width: 2rem;
+    height: 1.2rem;
+    
+}
+.calendarIcon{
+    content:url("calender.png");
+    filter: invert(54%) sepia(3%) saturate(1543%) hue-rotate(245deg) brightness(80%) contrast(81%);
+}
+.sunIcon{
+    content:url("sun.png");
+    filter: invert(54%) sepia(3%) saturate(1543%) hue-rotate(245deg) brightness(80%) contrast(81%);
+}
+.starIcon{ 
+    content:url("star.svg");
+    filter: invert(54%) sepia(3%) saturate(1543%) hue-rotate(245deg) brightness(80%) contrast(81%);
+}
+.listIcon{
+    content:url("list.png");
+    filter: invert(41%) sepia(38%) saturate(6127%) hue-rotate(214deg) brightness( 93%) contrast(91%);
+    display:inline;
+}
+.customerIcon{
+    content:url("custom.png");
+}
+.homeIcon{
+    content:url("home.svg");
+    filter: invert(43%) sepia(63%) saturate(1761%) hue-rotate(213deg) brightness(93%) contrast(93%);
+}
+.plusIcon{
+    content:url("plus.png");
+    padding: 0.4rem 1.2rem 0.2rem 0.9rem;
+}
+.sideBarContent {
+    display: flex;
+    align-content:center;
+    margin-top: 0.2rem;
+}
+.addList {
+    border: none;
+    padding: 0.5rem 0.4rem;
+    background-color: #f4f4f4;
+}
+.addList::placeholder,.inputTask::placeholder {
+    color: #5c89f8;
+}
+.addList:focus, .inputTask:focus {
+   outline: none;
+   background-color: #ffffff;
+}
+.addList:focus::placeholder, .inputTask:focus::placeholder {
+    color:#4f4e4e;
+}
+.sideBarHeader{
+    display: flex;
+    align-content:center;
+}
+.Icon {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+.content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.task {
+    font-family: segoe-Bold;
+    margin-top: 2.2rem;
+    margin-left: 1.5rem;
+    text-align: left;
+    width:100%;
+    font-size: 1.2rem;
+}
+.taskSign {
+    position:static;
+    color:#3e69e4;
+}
+.sideBarText {
+    font-size: 0.9rem;
+    margin-top: 0.1rem;
+    font-weight: lighter;
+    color: #484a45;
+}
+.taskDiv {
+    padding: 0.2rem 0.5rem 1rem 0.9rem;
+    color:#3e69e4;
+}
+.taskName {
+    display:inline; 
+    white-space:nowrap;
+    padding: 1rem 0.5rem 1rem 1.5rem;
+    color:#3e69e4;
+}
+.inputTask {
+    width: 98%;
+    padding: 1.5rem 0rem 1rem 0rem;
+    border:none;
+    color: #424141;    
+}
+.existingTask {
+    width: 97%;
+    padding: 1.5rem 0rem 1rem 4rem;
+    background-color:#ffffff;
+    text-align:left;
+    color: #424141;
+    border: none;
+}
+.existingTask:hover {
+    border-style:none;
+    background-color:#f4f4f4;
+}
+.existingTask:focus {
+    outline:0;
+    border-style:none;
+    background-color:#f4f6ff;
+}
+.detailHeader-checkBox {
+    margin: 10px 0;
+    height: 28px;
+    width: 28px;
+}
+.taskPanel {
+    width: 35%;
+    background-color: #f4f4f4;
+}
+.addtask-button {
+    background-color:#ffffff;
+    border:none;
+    margin-top: 1.2rem;
+}
+.taskContent {
+    display:flex;
+    align-content:center;
+    border-bottom: 2px solid #e5e5e5;
+    width:97%
+}
+.task-checkbox {
+    background-color: #fff;
+    content:url(check.svg);
+    cursor: pointer;
+    margin-top: 1rem;
+    height: 3rem;
+    width: 2rem;
+}
+
+.task-subParent {
+    display: flex;
+    border-bottom-color: 0px 0px 0.1rem;
+    border-bottom: 2px solid #e5e5e5;
+    align-content: center;
+    width: 97%;
+}
+

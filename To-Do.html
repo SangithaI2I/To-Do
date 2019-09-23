@@ -1,0 +1,54 @@
+<html>
+    <title> To Do </title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="design.css">
+    </head>
+    <body>
+        <div class="container">
+            <div id="header" class="header">
+                <span class="to-doSign">To Do</span>
+            </div>
+            <div class="content">
+                <div class="sideBar" id="sideBar">  
+                    <a href="#" id="menu" class="sidebar-menuIcon"><img src="menu.svg" class="menuIconDivision"/></a>
+                    <div class="sideBarContent">
+                        <div><span><a href="#"  class="sidebar-Icon"><i class="Icon sunIcon" aria-hidden="true"></i></a></span></div><div class="sideBarText"><span> &nbsp;My Day</span></div>
+                    </div>
+                    <div class="sideBarContent">
+                        <div><span><a href="#" class="sidebar-Icon"><i class="Icon starIcon"></i> </a></span></div><div class="sideBarText"><span> &nbsp;Important</span></div>
+                    </div>
+                    <div class="sideBarContent">
+                        <div><span><a href="#"  class="sidebar-Icon"><i class="Icon calendarIcon"></i></a></span></div><div class="sideBarText"><span> &nbsp;Planned</span></div>
+                    </div>
+                    <div class="sideBarContent">
+                        <div><span><a href="#"  class="sidebar-Icon"><i class="Icon customerIcon" aria-hidden="true" ></i></a></span></div><div class="sideBarText"><span> &nbsp;Assigned to Me</span></div>
+                    </div>
+                    <div class="sideBarContent">
+                        <div><span><a href="#"  class="sidebar-Icon"><i class="Icon homeIcon"></i></a></span></div><div class="sideBarText"><span> &nbsp;Task</span></div>
+                    </div>
+                    <br>
+                    <div id="taskList" class="taskDivision"></div>           
+                    <div class="sideBarContent">
+                        <div><span><i class="Icon plusIcon"></i></span></div><div class="sideBarText"><span>  
+                        <input class="addList" type="text" id="task" placeholder= "New list"/></span></div>
+                    </div>
+                </div>    
+                <div class="task">
+                <div id="taskHead"><span class="taskSign">Tasks..</span><br>
+                <div id="taskDiv"></div>
+                    <div  class="taskContent">
+                        <div><button class="sidebar-Icon addtask-button"><i class="Icon plusIcon" aria-hidden="true"></i></button></div>
+                        <div><input type="text" class="inputTask" id="inputTask" placeholder="Add Task"/></div>
+                    </div>
+                </div>
+                    
+                <div class="taskPanel">
+                    <div class="detailHeader">
+                        <span class="taskLabel" aria-label="mark as completed" role="checkbox" aria-checked="false"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="todo.js"></script>
+    </body>
+</html>
