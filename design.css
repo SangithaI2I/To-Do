@@ -149,7 +149,7 @@ body {
 .taskName {
     display:inline; 
     white-space:nowrap;
-    padding: 1rem 0.5rem 1rem 1.5rem;
+    padding: 0rem 0rem 0rem 1.5rem;
     color:#3e69e4;
 }
 .inputTask {

@@ -10,73 +10,96 @@ function changeWidth() {
        document.getElementById("sideBar").style.width="28rem";
    }
 }
-var task = document.getElementById('task');
-task.addEventListener("keyup", enterTask);
+var listItem = document.getElementById('listItem');
+listItem.addEventListener("keyup", enterTask);
 
 var taskSign = document.getElementsByClassName("taskSign")[0];
 function enterTask(e) {
-    if(e.keyCode == 13 && task.value !="") {
+    if(e.keyCode == 13 && listItem.value !="") {
         console.log(e.keyCode);
-        taskSign.innerText = task.value;
+        taskSign.innerText = listItem.value;
         addTask();
     }
 }
 
 var tasks = [];
-var todoTask = {};
 var taskCount = 0;
-function createTask(todoTask) {
-    todoTask.taskCount= taskCount;
-    todoTask.taskName = taskName;
-}
-    
-var newTask = document.getElementById("inputTask").addEventListener("keyup",getNextTask);
-function getNextTask(e) {   
-    var parent = document.getElementById("taskDiv"); 
+var taskName;
+var lists = [];
+var listName;
+var currentListId = 0;
+var currentTaskId = 0;
+var id = 0;
+var taskHead;       
+var parent = document.getElementById("taskDiv"); 
+var input = document.getElementById("inputTask");
+input.addEventListener("keyup",getNextTask);
+
+function getNextTask(e) {     
+    let todoTask = {};  
     var subParent = document.createElement("div");
-    subParent.className = "task-subParent";
-    var input = document.getElementById("inputTask");
+    subParent.className = "task-subParent";    
     if(e.keyCode == 13 && input.value !="") { 
         todoTask.taskName = input.value;    
-        todoTask.taskCount = taskCount;       
-        var li = document.createElement("input");
+        todoTask.id = id++;                       
+        todoTask.taskHead =taskSign.innerText;  
+        var t = document.createTextNode(input.value);    
+            let newList = lists[currentListId]   
+            console.log(todoTask.taskHead); 
+            newList.tasks.push(todoTask);
+            console.log(newList.listName); 
+            var li = document.createElement("input");
         li.type="button";
         li.className ="existingTask";
-        li.value= todoTask.taskName;
+        if(newList.listName === todoTask.taskHead) {        
+        for(let i=0; i<(newList.tasks).length; i++) {        
+            li.value= newList.tasks[i].taskName;
+        }
+               }
+        else {
+            li.innerHTML="";
+        }
+ 
         var checkbox = document.createElement("input");
         checkbox.type="checkbox";
         checkbox.className="task-checkbox"; 
         checkbox.id = "check";
         var label = document.createElement("label");
-            label.for =  "check" ;        
-       
-        var t = document.createTextNode(input.value);          
-            tasks.push(todoTask);
-            console.log(e.keyCode);
-            console.log(li);
+        label.for =  "check" ;
             subParent.appendChild(label);
             subParent.appendChild(checkbox);       
             subParent.appendChild(li);
             parent.appendChild(subParent);
+            console.log(newList);
             taskCount++;               
-            console.log(todoTask);
             input.value = "";
-            console.log(tasks);
+            
     }
-}  
+} 
+
+var taskList = document.getElementById("taskList"); 
 function addTask() {
+    let list = {};
     var taskName = document.createElement("span");
     var taskDiv = document.createElement("div");
-    var nextTask = task.value;
-    var taskList = document.getElementById("taskList");
+    list.listName = listItem.value;
     taskList.className="taskDiv";   
     taskName.className="taskName"; 
-    taskName.innerHTML = task.value;
-    console.log(task.value);
+    taskName.innerHTML = list.listName;
     taskDiv.innerHTML = '<i class="Icon listIcon"></i>';
     taskDiv.appendChild(taskName);
     taskList.appendChild(taskDiv);
-    task.value="";
-    console.log(taskList);
-    }           
-
+    lists.push(list);
+    list.id = lists.length-1;
+    list.tasks = [];
+    listItem.value="";
+    taskName.addEventListener("click", viewTaskPage.bind(list));        
+}   
+       
+function viewTaskPage() { 
+    document.getElementById("taskDiv").textContent= " ";
+    taskSign.innerText = this.listName;
+    currentListId = this.id;
+    input.addEventListener("keyup",getNextTask.bind(this)); 
+    
+}
