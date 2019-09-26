@@ -12,41 +12,83 @@
                 <div class="sideBar" id="sideBar">  
                     <a href="#" id="menu" class="sidebar-menuIcon"><img src="menu.svg" class="menuIconDivision"/></a>
                     <div class="sideBarContent">
-                        <div><span><a href="#"  class="sidebar-Icon"><i class="Icon sunIcon" aria-hidden="true"></i></a></span></div><div class="sideBarText"><span> &nbsp;My Day</span></div>
+                        <div><span><a href="#"  class="sidebar-Icon"><i class="icon sunIcon" aria-hidden="true"></i></a></span></div><div class="sideBarText"><span> &nbsp;My Day</span></div>
                     </div>
                     <div class="sideBarContent">
-                        <div><span><a href="#" class="sidebar-Icon"><i class="Icon starIcon"></i> </a></span></div><div class="sideBarText"><span> &nbsp;Important</span></div>
+                        <div><span><a href="#" class="sidebar-Icon"><i class="icon starIcon"></i> </a></span></div><div class="sideBarText"><span> &nbsp;Important</span></div>
                     </div>
                     <div class="sideBarContent">
-                        <div><span><a href="#"  class="sidebar-Icon"><i class="Icon calendarIcon"></i></a></span></div><div class="sideBarText"><span> &nbsp;Planned</span></div>
+                        <div><span><a href="#"  class="sidebar-Icon"><i class="icon calendarIcon"></i></a></span></div><div class="sideBarText"><span> &nbsp;Planned</span></div>
                     </div>
                     <div class="sideBarContent">
-                        <div><span><a href="#"  class="sidebar-Icon"><i class="Icon customerIcon" aria-hidden="true" ></i></a></span></div><div class="sideBarText"><span> &nbsp;Assigned to Me</span></div>
+                        <div><span><a href="#"  class="sidebar-Icon"><i class="icon customerIcon" aria-hidden="true" ></i></a></span></div><div class="sideBarText"><span> &nbsp;Assigned to Me</span></div>
                     </div>
                     <div class="sideBarContent">
-                        <div><span><a href="#"  class="sidebar-Icon"><i class="Icon homeIcon"></i></a></span></div><div class="sideBarText"><span> &nbsp;Task</span></div>
+                        <div><span><a href="#"  class="sidebar-Icon"><i class="icon homeIcon"></i></a></span></div><div class="sideBarText"><span> &nbsp;Task</span></div>
                     </div>
                     <br>
                     <div id="taskList" class="taskDivision"></div>           
                     <div class="sideBarContent">
-                        <div><span><i class="Icon plusIcon"></i></span></div>
+                        <div><span><i class="icon plusIcon"></i></span></div>
                         <div class="sideBarText"><span><input class="addList" type="text" id="listItem" placeholder= "New list"/></span></div>
                     </div>
                 </div>    
                 <div class="task">
-                <div id="taskHead"><span class="taskSign">Tasks..</span><br>
+                <div id="taskHead" class="taskHead"><span class="taskSign">Tasks..</span><br>
                 <div id="taskDiv"></div>
                     <div  class="taskContent">
-                        <div><button class="sidebar-Icon addtask-button"><i class="Icon plusIcon" aria-hidden="true"></i></button></div>
+                        <div><button class="sidebar-Icon addtask-button"><i class="icon plusIcon" aria-hidden="true"></i></button></div>
                         <div><input type="text" class="inputTask" id="inputTask" placeholder="Add Task"/></div>
                     </div>
                 </div>
+                </div>
+                
+                
+                <div class="taskPanel" id="taskPanel">
+                <div id="taskDetails" class="round">
+                <p><input type="checkbox" id="checkbox"/>
+                <label for="checkbox"></label>
+                <span id="taskTitle" class="subTaskTitleSpan"></span><br></div>
+                <div id="subTask"></div>
+                     <div  class="taskContent">
+                        <div><button class="sidebar-Icon addtask-button"><i class="icon plusIcon" aria-hidden="true"></i></button></div>
+                        <div><input type="text" class="inputSubTask" id="inputSubTask" placeholder="Add sub Task"/></div>
+                    </div>
+                
+                    <div class = "sidecontent subNotes2" >
+                      <a href="#"><i class = "icon sunIcon"></i> &nbsp;Add To My Day</a>
+                    </div>                      
+                     <div class ="subNotes3">
+                          <div class = "sidecontent">
+                          <a href="#"><i class = "icon alarmIcon"></i>&nbsp; Remaind me</a>
+                          </div>
+                          <div class = "sidecontent">
+                          <a href="#"><i class = "icon calendarIcon"></i>&nbsp;Add due date</a>
+                          </div>
+                          <div class = "sidecontent">
+                          <a href="#"><i class = "icon repeatIcon"></i>&nbsp;Repeat</a>
+                          </div>
+                      </div>
+                      
+                      <div class = "sidecontent subNotes4">
+                      <a href="#"><i class = "icon addFileIcon"></i>&nbsp;Add file</a>
+                      </div>
+                      
+                      <div class = "sidecontent newlist subNotes5">
+                      <input  id = "taskinput" class="addSubNotes" type="text" placeholder= "Add Notes"/> 
+                      </div>
+                      
+                      
+                      <div class = "sidecontent subNotes6" >
+                        <a class="closebtn" id="exit">×</a>
+                      </div>
+                </div>  
                     
-                <div class="taskPanel">
+     <!--           <div class="taskPanel">
                     <div class="detailHeader">
                         <span class="taskLabel" aria-label="mark as completed" role="checkbox" aria-checked="false"/>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
         <script src="todo.js"></script>

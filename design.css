@@ -11,9 +11,9 @@
     src:url("segoe/segoe-ui-bold.ttf");
 }
 .header {
-  background-color: #0E7BD8;
-  color: white;
-  text-align: left;
+    background-color: #0E7BD8;
+    color: white;
+    text-align: left;
 }
 .to-doSign {
     font-family:segoe;
@@ -42,11 +42,21 @@ body {
     background-color: #f4f4f4;
     overflow-x: hidden;
 }
-
-.sideBar a {
-  text-decoration: none;
-  color: #4f4e4e;
-  display: block;
+.taskPanel {
+    font-family:segoe-regular;
+    height: 100%;
+    color: #4e4f4a;
+    width: 28rem;
+    display: block;
+    position: relative;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+}
+.taskPanel a, .sideBar a {
+    text-decoration: none;
+    color: #4f4e4e;
+    display: block;
+    font-size: 0.9rem;
 }
 .sidebar-Icon {
     padding: 0.2rem 0.8rem 1rem 0.9rem;
@@ -56,7 +66,7 @@ body {
     margin: 0rem;
 }
 .sideBar a:hover {
-  color: #f1f1f1;
+    color: #f1f1f1;
 }
 .menuIconDivision {
     width: 2rem;
@@ -115,7 +125,7 @@ body {
     display: flex;
     align-content:center;
 }
-.Icon {
+.icon {
     width: 1.1rem;
     height: 1.1rem;
 }
@@ -126,17 +136,23 @@ body {
 }
 .task {
     font-family: segoe-Bold;
-    margin-top: 2.2rem;
-    margin-left: 1.5rem;
     text-align: left;
+    background-color: #ffffff;
     width:100%;
     font-size: 1.2rem;
 }
 .taskSign {
+    margin-top: 1rem;
+    margin-left: 2rem;
     position:static;
     color:#3e69e4;
 }
+.taskHead {
+    margin-top: 1rem;
+}
+
 .sideBarText {
+    cursor:pointer;
     font-size: 0.9rem;
     margin-top: 0.1rem;
     font-weight: lighter;
@@ -151,13 +167,19 @@ body {
     white-space:nowrap;
     padding: 0rem 0rem 0rem 1.5rem;
     color:#3e69e4;
+    cursor: pointer;
 }
-.inputTask {
+.inputTask,.inputSubTask {
     width: 98%;
     padding: 1.5rem 0rem 1rem 0rem;
     border:none;
     color: #424141;    
 }
+.inputSubTask {
+    margin: 1.1rem 0rem 0rem 0rem;
+    padding: 1rem 0rem 1rem 0rem;
+}
+
 .existingTask {
     width: 97%;
     padding: 1.5rem 0rem 1rem 4rem;
@@ -166,42 +188,72 @@ body {
     color: #424141;
     border: none;
 }
+
+.check{
+    text-decoration:line-through;
+}
+
 .existingTask:hover {
     border-style:none;
     background-color:#f4f4f4;
 }
+
+.subTask:focus {
+    outline:0;
+    border-style:none;
+    background-color:#f4f6ff;
+}
+
+.subTask {
+    width: 30%;
+    padding: 0.5rem 0rem 1rem 0rem;
+    background-color:#ffffff;
+    text-align:left;
+    color: #424141;
+    border: none;
+}
+
+.subTask:hover {
+    border-style:none;
+    background-color:#f4f4f4;
+}
+
 .existingTask:focus {
     outline:0;
     border-style:none;
     background-color:#f4f6ff;
 }
+
 .detailHeader-checkBox {
     margin: 10px 0;
     height: 28px;
     width: 28px;
 }
-.taskPanel {
-    width: 35%;
-    background-color: #f4f4f4;
-}
+
 .addtask-button {
     background-color:#ffffff;
     border:none;
     margin-top: 1.2rem;
 }
+
 .taskContent {
     display:flex;
     align-content:center;
     border-bottom: 2px solid #e5e5e5;
-    width:97%
 }
-.task-checkbox {
+
+.task-checkbox, .subtask-checkbox {
     background-color: #fff;
     content:url(check.svg);
     cursor: pointer;
     margin-top: 1rem;
     height: 3rem;
     width: 2rem;
+}
+
+.subtask-checkbox {
+    height: 1rem;
+
 }
 
 .task-subParent {
@@ -212,3 +264,143 @@ body {
     width: 97%;
 }
 
+.subTaskTitleSpan {
+    margin-left: 2rem;
+}
+
+.subNotes1 {
+   margin: 5%;
+   padding: 3%;
+   padding-left: 1%;
+   background: #ffffff;
+   width: 85%;
+   margin-top: auto;
+}
+
+.subNotes2{
+   margin: 5%;
+   padding: 3%;
+   padding-left: 1%;
+   background: #ffffff;
+   width: 85%;
+}
+
+.subNotes3{
+   margin: 5%;
+   padding: 3%;
+   padding-left: 1%;
+   background: #ffffff;
+   width: 85%;
+
+}
+
+.subNotes4{
+   margin: 5%;
+   padding: 3%;
+   padding-left: 1%;
+   background: #ffffff;
+   width: 85%;
+
+}
+
+.subNotes5{
+   margin: 5%;
+   padding: 1%;
+   padding-left: 0%;
+   background: #ffffff;
+   width: 88%;
+
+}
+
+.subNotes6{
+   margin: 4%;
+   padding: 0%;
+   padding-left: 1%;
+   width: 85%;
+}
+
+.round {
+    position: relative;
+}
+
+.round label {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 1.5rem;
+    left: 1rem;
+    position: absolute;
+    width: 1.5rem;
+}
+
+.round label:after {
+    border: 1px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 0.2rem;
+    opacity: 0;
+    position: absolute;
+    top: 0.3rem;
+    transform: rotate(-45deg);
+    width: 1rem;
+}
+
+.round input[type="checkbox"] {
+    visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+    background-color: #1579ce;
+    border-color: #1579ce;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+}
+
+.checked {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 28px;
+    left: 3px;
+    position: absolute;
+    top: 25px;
+    width: 28px;
+}
+
+.addsubnotes{
+   width: 100%;
+   padding: 1rem 1rem 1rem 1rem;;
+   font-size: 1rem;
+   height: 10%;
+   border: none;
+   outline: none;
+   background: transparent;
+}
+
+.newNotes{
+   color: #1579CE;
+   margin: 2% 0 0 3%;
+   display: flex;
+   padding-bottom: 1%;
+   border-color: #50504cfa;
+   border-bottom-style: solid;
+   border-bottom-width: thin;
+
+}
+.alarmIcon {
+   content:url("alarm.png");
+}
+.repeatIcon {
+   content:url("repeat.png");
+}
+.addFileIcon {
+   content:url("fileattach.png");
+} 
+.sidecontent {
+   margin-top:10%;
+}
