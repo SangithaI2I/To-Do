@@ -22,26 +22,48 @@ var id = 0;
 var taskHead;  
 
 menu.addEventListener("click",changeWidth);
-listItem.addEventListener("keyup", enterList);
+listItem.addEventListener("keyup", addList);
 input.addEventListener("keyup",addTask);
 inputSubTask.addEventListener("keyup",addSubTasks);
 getElementById("exit").addEventListener("click", viewTaskDetails);
-        
+
+/**
+ * It get Object using id and return it.
+ * @param {String} id - Id of element to return.
+ */
 function getElementById(id) {
     return document.getElementById(id);
 }
 
+/**
+ * It get element using class name and return it
+ * @param {String} className - name of the class applied to that corresponding element. 
+ * @param {int} index - index of element .
+ */
 function getElementByClass(className,index) {
     return document.getElementsByClassName(className)[index];
 }     
 
+/**
+ * It get new element name and create that element and return it.
+ * @param {String} element - Element need to create.
+ */
 function createElement(element) {
     return document.createElement(element);
 }
+
+/**
+ * It append the child element with parent element.
+ * @param {String} element - parent element 
+ * @param {String} childElement - child element to append with parent element
+ */
 function appendElement(element, childElement) {
     element.appendChild(childElement);
 }
 
+/**
+ * It Dynamically close and open sidebar when required.
+ */
 function changeWidth() {   
     if(sideBarText.style.display == "block") {
         sideBarText.style.display = "none";
@@ -52,15 +74,15 @@ function changeWidth() {
     }
 }
 
-function enterList(e) {
-    if(e.keyCode == 13 && listItem.value !="") {
-        addList();
-    }
-}
-
-function addTask(e) {     
-    let todoTask = {};        
+/**
+ * It check whether the input value is null and add that given Task 
+ * to corresponding task list when enter is pressed using event.
+ * It also bind corresponding task details and send it when task name is clicked to view.
+ * @param {Event} e - Event created whenever keyup performed.
+ */
+function addTask(e) {             
     if(e.keyCode == 13 && input.value !="") {
+        let todoTask = {};
         todoTask.id = id++;    
         todoTask.subTasks = [];    
         todoTask.status = false;  
@@ -72,27 +94,38 @@ function addTask(e) {
         input.value = "";
     }  
 }
-   
 
-function addList() {
-    let list = {};
-    var taskName = createElement("span");
-    var taskDiv = createElement("div");
-    list.name = listItem.value;
-    taskList.className="taskDiv";   
-    taskName.className="taskName"; 
-    taskName.innerHTML = list.name;
-    taskDiv.innerHTML = '<i class="Icon listIcon"></i>';
-    appendElement(taskDiv, taskName);
-    appendElement(taskList, taskDiv);                  
-    lists.push(list);
-    list.id = lists.length-1;
-    list.tasks = [];    
-    list.status = false;
-    taskDiv.addEventListener("click", viewTaskPage.bind(list)); 
-    listItem.value="";
+/**
+ * It check whether the List Name value is null and add that given list 
+ * to set of list when enter is pressed using event.
+ * It also bind corresponding list details and send it when list name is clicked to view.
+ * @param {Event} e - Event created whenever keyup performed.
+ */
+function addList(e) {
+    if(e.keyCode == 13 && listItem.value !="") {
+        let list = {};
+        var taskName = createElement("span");
+        var taskDiv = createElement("div");
+        list.name = listItem.value;
+        taskList.className="taskDiv";   
+        taskName.className="taskName"; 
+        taskName.innerHTML = list.name;
+        taskDiv.innerHTML = '<i class="Icon listIcon"></i>';
+        appendElement(taskDiv, taskName);
+        appendElement(taskList, taskDiv);                  
+        lists.push(list);
+        list.id = lists.length-1;
+        list.tasks = [];    
+        list.status = false;
+        taskDiv.addEventListener("click", viewTaskPage.bind(list)); 
+        listItem.value="";
+    }    
 }   
-       
+
+/**
+ * It change the header name to corresponding task name clicked to view and 
+ * set the current list id to corresponding task id.
+ */
 function viewTaskPage() { 
     taskSign.innerText = this.name;
     currentListId = this.id;
@@ -100,6 +133,10 @@ function viewTaskPage() {
     
 }
 
+/**
+ * It Display all task name existing in the corresponding task list. 
+ * @param {Object} obj - Task List given to display tasks. 
+ */
 function showTask(obj) {
     parent.innerHTML = "";
     if(obj!=null) { 
@@ -111,6 +148,12 @@ function showTask(obj) {
     }         
 }
 
+/**
+ * It Check the task status whether checked or not and apply
+ * strike to the task when it is checked and vice-versa
+ * @param {*} divName - element name to apply or remove strike when it is checked or not respectively.
+ * @param {*} task - task given to check status checked or not.
+ */
 function checkTaskStatus(divName ,task) {
     var checkedTask = getElementById(divName + task.id);
     if(task.status) {
@@ -124,7 +167,11 @@ function checkTaskStatus(divName ,task) {
         view();
     }             
 }   
-       
+
+/**
+ * It Check the sub-task status whether checked or not and apply
+ * strike to the sub-task when it is checked and vice-versa
+ */
 function viewTaskDetails() {
     if(this.status) {
         taskTitle.classList.add("check");
@@ -139,6 +186,11 @@ function viewTaskDetails() {
     showSubTask(this);
 }
 
+/**
+ * It check whether the sub-task value is null and add that given sub-task 
+ * to corresponding task when enter is pressed using event.
+ * @param {Event} e - Event created whenever keyup performed.
+ */
 function addSubTasks(e) {
     let subTask = {};   
     var currentList = lists[currentListId];
@@ -153,6 +205,10 @@ function addSubTasks(e) {
     } 
 }
 
+/**
+ * It Display all sub-tasks existing in the corresponding task. 
+ * @param {Object} obj - sub-task List given to display sub-task. 
+ */
 function showSubTask(task) {
     taskPanel.innerHTML = "";
     if(task!=null) { 
@@ -163,6 +219,13 @@ function showSubTask(task) {
     }         
 }
 
+/**
+ * It Create Elements and set the values to element and append
+ * it properly to show task and sub-task details.
+ * @param {Object} task - Task given to show. 
+ * @param {String} divName - Prefix of Division id 
+ * @param {String} parentDiv - Parent Division to perform append operation. 
+ */
 function createTaskArea(task, divName, parentDiv, ) {
     var subParent = createElement("div");
     subParent.id = divName + task.id;

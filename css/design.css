@@ -1,14 +1,14 @@
 @font-face {
     font-family:segoe;
-    src:url("segoe/seguisb.ttf");
+    src:url("../font/seguisb.ttf");
 }
 @font-face {
     font-family:segoe-regular;
-    src:url("segoe/segoe-regular.ttf");
+    src:url("../font/segoe-regular.ttf");
 }
 @font-face {
     font-family:segoe-Bold;
-    src:url("segoe/segoe-ui-bold.ttf");
+    src:url("../font/segoe-ui-bold.ttf");
 }
 .header {
     background-color: #0E7BD8;
@@ -77,31 +77,31 @@ body {
     
 }
 .calendarIcon{
-    content:url("calender.png");
+    content:url("../icons/calender.png");
     filter: invert(54%) sepia(3%) saturate(1543%) hue-rotate(245deg) brightness(80%) contrast(81%);
 }
 .sunIcon{
-    content:url("sun.png");
+    content:url("../icons/sun.png");
     filter: invert(54%) sepia(3%) saturate(1543%) hue-rotate(245deg) brightness(80%) contrast(81%);
 }
 .starIcon{ 
-    content:url("star.svg");
+    content:url("../icons/star.svg");
     filter: invert(54%) sepia(3%) saturate(1543%) hue-rotate(245deg) brightness(80%) contrast(81%);
 }
 .listIcon{
-    content:url("list.png");
+    content:url("../icons/list.png");
     filter: invert(41%) sepia(38%) saturate(6127%) hue-rotate(214deg) brightness( 93%) contrast(91%);
     display:inline;
 }
 .customerIcon{
-    content:url("custom.png");
+    content:url("../icons/custom.png");
 }
 .homeIcon{
-    content:url("home.svg");
+    content:url("../icons/home.svg");
     filter: invert(43%) sepia(63%) saturate(1761%) hue-rotate(213deg) brightness(93%) contrast(93%);
 }
 .plusIcon{
-    content:url("plus.png");
+    content:url("../icons/plus.png");
     padding: 0.4rem 1.2rem 0.2rem 0.9rem;
 }
 .sideBarContent {
@@ -249,7 +249,7 @@ body {
 
 .task-checkbox, .subtask-checkbox {
     background-color: #fff;
-    content:url(check.svg);
+    content:url(../icons/check.svg);
     cursor: pointer;
     margin-top: 1rem;
     height: 3rem;
@@ -390,13 +390,13 @@ body {
 
 }
 .alarmIcon {
-   content:url("alarm.png");
+   content:url("../icons/alarm.png");
 }
 .repeatIcon {
-   content:url("repeat.png");
+   content:url("../icons/repeat.png");
 }
 .addFileIcon {
-   content:url("fileattach.png");
+   content:url("../icons/fileattach.png");
 } 
 .sidecontent {
    margin-top:10%;

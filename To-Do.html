@@ -1,7 +1,8 @@
 <html>
     <title> To Do </title>
     <head>
-        <link rel="stylesheet" type="text/css" href="design.css">
+        <link rel="stylesheet" type="text/css" href="css/design.css">
+         <script src="js/jquery-3.4.1.js"></script>
     </head>
     <body>
         <div class="container">
@@ -10,7 +11,7 @@
             </div>
             <div class="content">
                 <div class="sideBar" id="sideBar">  
-                    <a href="#" id="menu" class="sidebar-menuIcon"><img src="menu.svg" class="menuIconDivision"/></a>
+                    <a href="#" id="menu" class="sidebar-menuIcon"><img src="icons/menu.svg" class="menuIconDivision"/></a>
                     <div class="sideBarContent">
                         <div><span><a href="#"  class="sidebar-Icon"><i class="icon sunIcon" aria-hidden="true"></i></a></span></div><div class="sideBarText"><span> &nbsp;My Day</span></div>
                     </div>
@@ -60,7 +61,7 @@
                     </div>                      
                      <div class ="remindMe">
                           <div class = "sidecontent">
-                          <a href="#"><i class = "icon alarmIcon"></i>&nbsp;Remaind me</a>
+                          <a href="#"><i class = "icon alarm-Icon"></i>&nbsp;Remaind me</a>
                           </div>
                           <div class = "sidecontent">
                           <a href="#"><i class = "icon calendarIcon"></i>&nbsp;Add due date</a>
@@ -74,23 +75,17 @@
                       <a href="#"><i class = "icon addFileIcon"></i>&nbsp;Add file</a>
                       </div>
                       
-                      <div class = "sidecontent newlist addNotes">
-                      <input  id = "taskinput" class="addSubNotes" type="text" placeholder= "Add Notes"/> 
-                      </div>
-                      
-                      
-                      <div class = "sidecontent exitNote" >
-                        <a class="closebtn" id="exit">×</a>
-                      </div>
-                </div>  
-                    
-     <!--           <div class="taskPanel">
-                    <div class="detailHeader">
-                        <span class="taskLabel" aria-label="mark as completed" role="checkbox" aria-checked="false"/>
+                    <div class = "sidecontent newlist addNotes">
+                        <input  id = "taskinput" class="addSubNotes" type="text" placeholder= "Add Notes"/> 
                     </div>
-                </div>-->
+                      
+                      
+                    <div class = "sidecontent exitNote" >
+                        <a class="closebtn" id="exit">×</a>
+                    </div>
+                </div>  
             </div>
         </div>
-        <script src="todo.js"></script>
+        <script src="js/todo.js"></script>
     </body>
 </html>
