@@ -46,10 +46,10 @@
                 
                 
                 <div class="taskPanel" id="taskPanel">
-                <div id="taskDetails" class="round">
+                <div class="round">
                 <p><input type="checkbox" id="checkbox"/>
                 <label for="checkbox"></label>
-                <span id="taskTitle" class="subTaskTitleSpan"></span><br></div>
+                <span class="subTaskTitleSpan"></span><br></div>
                 <div id="subTask"></div>
                      <div  class="taskContent">
                         <div><button class="sidebar-Icon addtask-button"><i class="icon plusIcon" aria-hidden="true"></i></button></div>
@@ -61,7 +61,7 @@
                     </div>                      
                      <div class ="remindMe">
                           <div class = "sidecontent">
-                          <a href="#"><i class = "icon alarm-Icon"></i>&nbsp;Remaind me</a>
+                          <a href="#"><i class = "icon alarmIcon"></i>&nbsp;Remaind me</a>
                           </div>
                           <div class = "sidecontent">
                           <a href="#"><i class = "icon calendarIcon"></i>&nbsp;Add due date</a>
@@ -75,15 +75,21 @@
                       <a href="#"><i class = "icon addFileIcon"></i>&nbsp;Add file</a>
                       </div>
                       
-                    <div class = "sidecontent newlist addNotes">
-                        <input  id = "taskinput" class="addSubNotes" type="text" placeholder= "Add Notes"/> 
-                    </div>
+                      <div class = "sidecontent newlist addNotes">
+                      <input  id = "taskinput" class="addSubNotes" type="text" placeholder= "Add Notes"/> 
+                      </div>
                       
                       
-                    <div class = "sidecontent exitNote" >
+                      <div class = "sidecontent exitNote" >
                         <a class="closebtn" id="exit">×</a>
-                    </div>
+                      </div>
                 </div>  
+                    
+     <!--           <div class="taskPanel">
+                    <div class="detailHeader">
+                        <span class="taskLabel" aria-label="mark as completed" role="checkbox" aria-checked="false"/>
+                    </div>
+                </div>-->
             </div>
         </div>
         <script src="js/todo.js"></script>

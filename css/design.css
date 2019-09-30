@@ -401,3 +401,7 @@ body {
 .sidecontent {
    margin-top:10%;
 }
+
+.display {
+    display: none;
+}

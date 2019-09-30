@@ -1,16 +1,14 @@
-var menu = getElementById('menu');
-var listItem = getElementById('listItem');
-var taskSign = getElementByClass("taskSign",0);
-var sideBarText = getElementByClass('sideBarText',0);
-var parent = getElementById("taskDiv"); 
-var input = getElementById("inputTask");
-var taskList = getElementById("taskList"); 
-var sidebar = getElementById("sideBar");
-var taskPanel = getElementById("subTask");
-var taskDetails = getElementById("taskDetails");
-var taskTitle = getElementById("taskTitle");
-var inputSubTask = getElementById("inputSubTask");
-var subTaskCheckBox = getElementById("checkbox");
+"use strict";
+
+//Global variables
+var menu = $('#menu');
+var listItem = $('#listItem');
+var taskSign = $('.taskSign');
+var parentDiv = $('#taskDiv'); 
+var input = $('#inputTask');
+var taskPanel = $('#subTask');
+var taskTitle = $('.subTaskTitleSpan');
+var inputSubTask = $('#inputSubTask');
 
 var tasks = [];
 var subTasks = [];
@@ -18,32 +16,22 @@ var name;
 var lists = [];
 var currentListId = 0;
 var currentTaskId = 0;
-var id = 0;
-var taskHead;  
+var id = 0;  
 
-menu.addEventListener("click",changeWidth);
-listItem.addEventListener("keyup", addList);
-input.addEventListener("keyup",addTask);
-inputSubTask.addEventListener("keyup",addSubTasks);
-getElementById("exit").addEventListener("click", viewTaskDetails);
+// calls initialization method
+init();
 
 /**
- * It get Object using id and return it.
- * @param {String} id - Id of element to return.
+ * It intialize the methods which are required to invoke initially.
  */
-function getElementById(id) {
-    return document.getElementById(id);
+function init() {
+    menu.click(changeWidth);
+    listItem.keyup(addList);
+    input.keyup(addTask);
+    inputSubTask.keyup(addSubTasks);
+    $('#exit').click(changeTaskWidth);
 }
-
-/**
- * It get element using class name and return it
- * @param {String} className - name of the class applied to that corresponding element. 
- * @param {int} index - index of element .
- */
-function getElementByClass(className,index) {
-    return document.getElementsByClassName(className)[index];
-}     
-
+    
 /**
  * It get new element name and create that element and return it.
  * @param {String} element - Element need to create.
@@ -58,20 +46,22 @@ function createElement(element) {
  * @param {String} childElement - child element to append with parent element
  */
 function appendElement(element, childElement) {
-    element.appendChild(childElement);
+    element.append(childElement);
 }
 
 /**
  * It Dynamically close and open sidebar when required.
  */
-function changeWidth() {   
-    if(sideBarText.style.display == "block") {
-        sideBarText.style.display = "none";
-        sidebar.classList.add("closeSideBar");
-    } else {
-        sideBarText.style.display = "block"; 
-        sidebar.classList.remove("closeSideBar");
-    }
+function changeWidth() {  
+    $('.sideBarText').toggleClass("display");
+    $('#sideBar').toggleClass("closeSideBar"); 
+}
+
+/**
+ * It Dynamically close and open taskbar when required.
+ */
+function changeTaskWidth() {  
+    $('#taskPanel').toggleClass("display"); 
 }
 
 /**
@@ -80,20 +70,19 @@ function changeWidth() {
  * It also bind corresponding task details and send it when task name is clicked to view.
  * @param {Event} e - Event created whenever keyup performed.
  */
-function addTask(e) {             
-    if(e.keyCode == 13 && input.value !="") {
-        let todoTask = {};
+function addTask(e) {     
+    var todoTask = {};        
+    if(e.keyCode == 13 && input.val() !="") {
         todoTask.id = id++;    
         todoTask.subTasks = [];    
         todoTask.status = false;  
-        todoTask.name = input.value;             
-        todoTask.taskHead =taskSign.innerText; 
-        var existingTask = createTaskArea(todoTask, "task", parent);
+        todoTask.name = input.val();             
+        var existingTask = createTaskArea(todoTask, "task", parentDiv);
         lists[currentListId].tasks.push(todoTask);    
-        existingTask.addEventListener("click", viewTaskDetails.bind(todoTask));                        
-        input.value = "";
+        existingTask.addEventListener("click",viewTaskDetails.bind(todoTask));                        
+        input.val("");
     }  
-}
+}   
 
 /**
  * It check whether the List Name value is null and add that given list 
@@ -102,13 +91,14 @@ function addTask(e) {
  * @param {Event} e - Event created whenever keyup performed.
  */
 function addList(e) {
-    if(e.keyCode == 13 && listItem.value !="") {
-        let list = {};
+    if(e.keyCode == 13 && listItem.val() !="") {
+        var taskList = $('#taskList'); 
+        var list = {};
         var taskName = createElement("span");
         var taskDiv = createElement("div");
-        list.name = listItem.value;
-        taskList.className="taskDiv";   
-        taskName.className="taskName"; 
+        list.name = listItem.val();
+        taskList.addClass("taskDiv");   
+        taskName.className = "taskName"; 
         taskName.innerHTML = list.name;
         taskDiv.innerHTML = '<i class="Icon listIcon"></i>';
         appendElement(taskDiv, taskName);
@@ -118,16 +108,16 @@ function addList(e) {
         list.tasks = [];    
         list.status = false;
         taskDiv.addEventListener("click", viewTaskPage.bind(list)); 
-        listItem.value="";
-    }    
-}   
+        listItem.val("");
+    }
+} 
 
 /**
  * It change the header name to corresponding task name clicked to view and 
  * set the current list id to corresponding task id.
- */
+ */       
 function viewTaskPage() { 
-    taskSign.innerText = this.name;
+    taskSign.text(this.name);
     currentListId = this.id;
     showTask(this); 
     
@@ -138,12 +128,12 @@ function viewTaskPage() {
  * @param {Object} obj - Task List given to display tasks. 
  */
 function showTask(obj) {
-    parent.innerHTML = "";
+    parentDiv.html("");
     if(obj!=null) { 
-        for(let i=0; i<(obj.tasks).length; i++) { 
-            var existingTask = createTaskArea(obj.tasks[i], "task", parent);          
+        for(var i=0; i<(obj.tasks).length; i++) { 
+            var existingTask = createTaskArea(obj.tasks[i], "task", parentDiv);          
             existingTask.addEventListener("click", viewTaskDetails.bind(obj.tasks[i]));                        
-            input.value = ""; 
+            input.val(""); 
         }  
     }         
 }
@@ -155,12 +145,12 @@ function showTask(obj) {
  * @param {*} task - task given to check status checked or not.
  */
 function checkTaskStatus(divName ,task) {
-    var checkedTask = getElementById(divName + task.id);
+    var checkedTask = divName+task.id;
     if(task.status) {
-        checkedTask.classList.add("check");
+        $('#checkedTask').addClass("check");
     }
     else {
-        checkedTask.classList.remove("check");
+        $('#checkedTask').removeClass("check");
     } 
     if(divName == "task") {   
         var view = viewTaskDetails.bind(task);   
@@ -174,14 +164,15 @@ function checkTaskStatus(divName ,task) {
  */
 function viewTaskDetails() {
     if(this.status) {
-        taskTitle.classList.add("check");
-        subTaskCheckBox.checked = true;
+        taskTitle.addClass("check");
+        $('#checkbox').prop("checked",true);
     }
     else {
-       taskTitle.classList.remove("check");
-       subTaskCheckBox.checked = false;
+       taskTitle.removeClass("check");
+       $('#checkbox').prop("checked",false);
     }            
-    taskTitle.innerText = this.name;    
+    console.log(this.name);
+    taskTitle.text(this.name);    
     currentTaskId = this.id;
     showSubTask(this);
 }
@@ -192,14 +183,13 @@ function viewTaskDetails() {
  * @param {Event} e - Event created whenever keyup performed.
  */
 function addSubTasks(e) {
-    let subTask = {};   
+    var subTask = {};   
     var currentList = lists[currentListId];
     var currentTask = currentList.tasks[currentTaskId];
-    if(e.keyCode == 13 && inputSubTask.value !="") {
-        subTask.name = inputSubTask.value;    
+    if(e.keyCode == 13 && inputSubTask.val() !="") {
+        subTask.name = inputSubTask.val();    
         subTask.id = id++;      
-        subTask.status = false;               
-        subTask.taskHead =taskTitle.innerText;    
+        subTask.status = false;                  
         currentTask.subTasks.push(subTask);         
         showSubTask(currentTask);
     } 
@@ -210,11 +200,11 @@ function addSubTasks(e) {
  * @param {Object} obj - sub-task List given to display sub-task. 
  */
 function showSubTask(task) {
-    taskPanel.innerHTML = "";
+    taskPanel.html("");
     if(task!=null) { 
-        for(let i=0; i<(task.subTasks).length; i++) { 
+        for(var i=0; i<(task.subTasks).length; i++) { 
             createTaskArea(task.subTasks[i], "subTask", taskPanel);
-            inputSubTask.value = ""; 
+            inputSubTask.val(""); 
         }  
     }         
 }
@@ -230,7 +220,7 @@ function createTaskArea(task, divName, parentDiv, ) {
     var subParent = createElement("div");
     subParent.id = divName + task.id;
     subParent.className = "task-subParent"; 
-    var t = document.createTextNode(inputSubTask.value);
+    var t = document.createTextNode(inputSubTask.val());
     var existingSubTask = createElement("input");
     existingSubTask.type="button";
     existingSubTask.className ="existingTask";  
@@ -255,7 +245,7 @@ function createTaskArea(task, divName, parentDiv, ) {
     });
     existingSubTask.value= task.name;
     appendElement(subParent, label);
-    appendElement(subParent, checkbox);       
+    appendElement(subParent, checkbox);   
     appendElement(subParent, existingSubTask);
     appendElement(parentDiv, subParent)
     return existingSubTask;
