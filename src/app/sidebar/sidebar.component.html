@@ -1,0 +1,34 @@
+    <div class="sideBar" id="sideBar" [ngClass] = "status ? 'closeSideBar' : 'sideBar'">  
+        <a href="#" (click)="toggleSidebar()" id="menu"  class="sidebar-menuIcon"><img src="../../assets/icons/menu.svg" class="menuIconDivision"/></a>
+        <div class="sideBarContent">
+            <div><span><a href="#"  class="sidebar-Icon"><i class="icon sunIcon" aria-hidden="true"></i></a></span></div>
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'" ><span> &nbsp;My Day</span></div>
+        </div>
+        <div class="sideBarContent">
+            <div><span><a href="#" class="sidebar-Icon"><i class="icon starIcon"></i> </a></span></div>
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><span> &nbsp;Important</span></div>
+        </div>
+        <div class="sideBarContent">
+            <div><span><a href="#"  class="sidebar-Icon"><i class="icon calendarIcon"></i></a></span></div>
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><span> &nbsp;Planned</span></div>
+        </div>
+        <div class="sideBarContent">
+            <div><span><a href="#"  class="sidebar-Icon"><i class="icon customerIcon" aria-hidden="true" ></i></a></span></div>
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><span> &nbsp;Assigned to Me</span></div>
+        </div>
+        <div class="sideBarContent">
+            <div><span><a href="#"  class="sidebar-Icon"><i class="icon homeIcon"></i></a></span></div>
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><span> &nbsp;Task</span></div>
+        </div>
+        <br>
+        <div id="taskList" class="taskDivision"></div>  
+        <div *ngFor="let list of lists">
+                {{list.name}}
+        </div>         
+        <div class="sideBarContent">              
+            <div><span><i class="icon plusIcon"></i></span></div>
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'">
+                <span><input class="addList" type="text" id="listItem" (keyup)='addList($event)' placeholder= "New list"/></span>
+            </div>
+        </div>
+    </div>
