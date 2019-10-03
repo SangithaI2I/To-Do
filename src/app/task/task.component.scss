@@ -1,0 +1,124 @@
+@font-face {
+    font-family:segoe;
+    src:url("../../assets/font/seguisb.ttf");
+}
+@font-face {
+    font-family:segoe-regular;
+    src:url("../../assets/font/segoe-regular.ttf");
+}
+@font-face {
+    font-family:segoe-Bold;
+    src:url("../../assets/font/segoe-ui-bold.ttf");
+}
+.task {
+    font-family: segoe-Bold;
+    text-align: left;
+    background-color: #ffffff;
+    width: 53rem;
+    font-size: 1.2rem;
+}
+.taskSign {    
+    margin-top: 1rem;
+    margin-left: 2rem;
+    position:static;
+    color:#3e69e4;
+    border:none;
+    font-size:1.5rem;
+}
+.taskHead {
+    margin-top: 1rem;
+}
+
+.plusIcon{
+    content:url("../../assets/icons/plus.png");
+    padding: 0.4rem 1.2rem 0.2rem 0.9rem;
+}
+.taskContent {
+    display:flex;
+    align-content:center;
+    border-bottom: 2px solid #e5e5e5;
+}
+.sidebar-Icon {
+    padding: 0.2rem 0.8rem 1rem 0.9rem;
+}
+.addtask-button {
+    background-color:#ffffff;
+    border:none;
+    margin-top: 1.2rem;
+}
+.icon {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+.inputTask::placeholder {
+    color: #5c89f8;
+}
+.inputTask:focus, .taskSign:focus {
+   outline: none;
+   background-color: #ffffff;
+}
+.inputTask:focus::placeholder {
+    color:#4f4e4e;
+}
+.inputTask,.inputSubTask {
+    width: 98%;
+    padding: 1.5rem 16rem 1rem 0rem;
+    border:none;
+    color: #424141;    
+}
+.taskDiv {
+    padding: 0.2rem 0.5rem 1rem 0.9rem;
+    color:#3e69e4;
+    cursor: pointer;
+}
+.task-subParent {
+    display: flex;
+    border-bottom-color: 0px 0px 0.1rem;
+    border-bottom: 2px solid #e5e5e5;
+    align-content: center;
+    width: 97%;
+}
+.task-checkbox, .subtask-checkbox {
+    background-color: #fff;
+    content:url(../../assets/icons/check.svg);
+    cursor: pointer;
+    margin-top: 1rem;
+    height: 3rem;
+    width: 2rem;
+}
+
+.existingTask {
+    width: 97%;
+    padding: 1.5rem 0rem 1rem 4rem;
+    background-color:#ffffff;
+    text-align:left;
+    color: #424141;
+    border: none;
+    cursor: pointer;
+}
+.task-input {
+    display: flex;
+    align-content: center;
+}
+.taskPanel a{
+    text-decoration: none;
+    color: #4f4e4e;
+    display: block;
+    font-size: 0.9rem;
+    display: flex;
+    align-content: center;
+}
+.taskPanel {
+    font-family:segoe-regular;
+    height: 100%;
+    color: #4e4f4a;
+    width: 28rem;
+    display: block;
+    position: relative;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+}
+.task-content {
+    display: flex;
+    height: 100%;
+}

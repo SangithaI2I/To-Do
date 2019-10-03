@@ -1,0 +1,108 @@
+.round {
+    position: relative;
+}
+.subTaskTitleSpan {
+    margin-left: 2rem;
+}
+.taskContent {
+    display:flex;
+    align-content:center;
+    border-bottom: 2px solid #e5e5e5;
+}
+.sidebar-Icon {
+    padding: 0.2rem 0.8rem 1rem 0.9rem;
+}
+.addtask-button {
+    background-color:#ffffff;
+    border:none;
+    margin-top: 1.2rem;
+}
+.icon {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+.plusIcon{
+    content:url("../../assets/icons/plus.png");
+    padding: 0.4rem 1.2rem 0.2rem 0.9rem;
+}
+.inputTask,.inputSubTask {
+    width: 98%;
+    padding: 1.5rem 16rem 1rem 0rem;
+    border:none;
+    color: #424141;    
+}
+
+.inputSubTask {
+    margin: 1.1rem 0rem 0rem 0rem;
+    padding: 1rem 0rem 1rem 0rem;
+}
+
+.sidecontent {
+    margin-top:10%;
+ }
+ 
+.addToDay {
+    margin: 5%;
+    padding: 3%;
+    padding-left: 1%;
+    background: #ffffff;
+    width: 85%;
+ }
+ .sunIcon{
+    content:url("../../assets/icons/sun.png");
+    filter: invert(54%) sepia(3%) saturate(1543%) hue-rotate(245deg) brightness(80%) contrast(81%);
+}
+.alarmIcon {
+    content:url("../../assets/icons/alarm.png");
+ }
+.calendarIcon{
+    content:url("../../assets/icons/calender.png");
+    filter: invert(54%) sepia(3%) saturate(1543%) hue-rotate(245deg) brightness(80%) contrast(81%);
+}
+.repeatIcon {
+    content:url("../../assets/icons/repeat.png");
+}
+.addFile {
+    margin: 5%;
+    padding: 3%;
+    padding-left: 1%;
+    background: #ffffff;
+    width: 85%;
+ 
+}
+.addFileIcon {
+    content:url("../../assets/icons/fileattach.png");
+} 
+.addNotes {
+    margin: 5%;
+    padding: 1%;
+    padding-left: 0%;
+    background: #ffffff;
+    width: 88%;
+ 
+}
+.addsubnotes{
+    width: 100%;
+    padding: 1rem 1rem 1rem 1rem;;
+    font-size: 1rem;
+    height: 10%;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.exitNote {
+    margin: 4%;
+    padding: 0%;
+    padding-left: 1%;
+    width: 85%;
+}
+.task-sub{
+    display: flex;
+    align-content: center;
+}
+.sidecontent a{
+    text-decoration: none;
+    color: #4f4e4e;
+    display: block;
+    font-size: 0.9rem;
+}

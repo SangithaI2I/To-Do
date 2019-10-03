@@ -1,0 +1,23 @@
+<div class="task-content">
+    <div class="task">
+        <div id="taskHead" class="taskHead"><input type="text" class="taskSign" value="{{list.name}}" (keyup)="changeName(list,$event)"/><br>
+            <div class="taskDiv">
+                <div *ngFor="let task of list.tasks">
+                    <div class="task-subParent">
+                        <input type="checkbox" class="task-checkbox" id="check"/>
+                        <label for="check"></label>
+                        <input type="button" class="existingTask" value="{{task.name}}"/>
+                    </div>
+                </div>
+                <div class="task-input ">
+                    <div><button class="sidebar-Icon addtask-button"><i class="icon plusIcon" aria-hidden="true"></i></button></div>
+                    <div><input type="text" class="inputTask" id="inputTask" placeholder="Add Task" (keyup)="addTask($event)"/></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="taskPanel" id="taskPanel">
+        <app-sub-task></app-sub-task>
+    </div>
+</div>
+

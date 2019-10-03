@@ -10,10 +10,8 @@
     font-family:segoe-Bold;
     src:url("../../assets/font/segoe-ui-bold.ttf");
 }
-body {
-    display: block;
-    margin: 0px;
-    padding:0;
+.task-content {
+    display: flex;
 }
 .container {
     display: flex;
@@ -27,6 +25,7 @@ body {
     position: relative;
     background-color: #f4f4f4;
     overflow-x: hidden;
+    height: 44rem;
 }
 .closeSideBar {
     width: 3rem;
@@ -78,6 +77,8 @@ body {
     content:url("../../assets/icons/list.png");
     filter: invert(41%) sepia(38%) saturate(6127%) hue-rotate(214deg) brightness( 93%) contrast(91%);
     display:inline;
+    height: 1.5rem;
+    width:1.2rem;
 }
 .customerIcon{
     content:url("../../assets/icons/custom.png");
@@ -97,7 +98,7 @@ body {
 }
 .addList {
     border: none;
-    padding: 0.5rem 0.4rem;
+    padding: 1.5rem 0rem 1rem 1rem;
     background-color: #f4f4f4;
 }
 .addList::placeholder,.inputTask::placeholder {
@@ -114,7 +115,7 @@ body {
     display: flex;
     align-content:center;
 }
-.icon {
+.icon{
     width: 1.1rem;
     height: 1.1rem;
 }
@@ -129,6 +130,11 @@ body {
     background-color: #ffffff;
     width:100%;
     font-size: 1.2rem;
+}
+.taskDiv {
+    padding: 0.2rem 0.5rem 1rem 0.9rem;
+    color:#3e69e4;
+    cursor: pointer;
 }
 .taskSign {
     margin-top: 1rem;
@@ -146,11 +152,6 @@ body {
     margin-top: 0.1rem;
     font-weight: lighter;
     color: #484a45;
-}
-.taskDiv {
-    padding: 0.2rem 0.5rem 1rem 0.9rem;
-    color:#3e69e4;
-    cursor: pointer;
 }
 .taskName {
     display:inline; 
@@ -235,14 +236,6 @@ body {
 .subtask-checkbox {
     height: 1rem;
 
-}
-
-.task-subParent {
-    display: flex;
-    border-bottom-color: 0px 0px 0.1rem;
-    border-bottom: 2px solid #e5e5e5;
-    align-content: center;
-    width: 97%;
 }
 
 .subTaskTitleSpan {

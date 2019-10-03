@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.scss']
 })
 export class ToDoHeader {
-  title = 'ToDo-App';
+    title = 'ToDo-App';
 }

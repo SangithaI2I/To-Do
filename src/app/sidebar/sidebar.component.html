@@ -1,34 +1,39 @@
+<div class="task-content">
     <div class="sideBar" id="sideBar" [ngClass] = "status ? 'closeSideBar' : 'sideBar'">  
         <a href="#" (click)="toggleSidebar()" id="menu"  class="sidebar-menuIcon"><img src="../../assets/icons/menu.svg" class="menuIconDivision"/></a>
         <div class="sideBarContent">
-            <div><span><a href="#"  class="sidebar-Icon"><i class="icon sunIcon" aria-hidden="true"></i></a></span></div>
-            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'" ><span> &nbsp;My Day</span></div>
+            <div><p><a href="#"  class="sidebar-Icon"><i class="icon sunIcon" aria-hidden="true"></i></a></p></div>
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'" ><p> &nbsp;My Day</p></div>
         </div>
         <div class="sideBarContent">
-            <div><span><a href="#" class="sidebar-Icon"><i class="icon starIcon"></i> </a></span></div>
-            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><span> &nbsp;Important</span></div>
+            <div><p><a href="#" class="sidebar-Icon"><i class="icon starIcon"></i> </a></p></div>
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><p> &nbsp;Important</p></div>
         </div>
         <div class="sideBarContent">
-            <div><span><a href="#"  class="sidebar-Icon"><i class="icon calendarIcon"></i></a></span></div>
-            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><span> &nbsp;Planned</span></div>
+            <div><p><a href="#"  class="sidebar-Icon"><i class="icon calendarIcon"></i></a></p></div>
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><p> &nbsp;Planned</p></div>
         </div>
         <div class="sideBarContent">
-            <div><span><a href="#"  class="sidebar-Icon"><i class="icon customerIcon" aria-hidden="true" ></i></a></span></div>
-            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><span> &nbsp;Assigned to Me</span></div>
+            <div><p><a href="#"  class="sidebar-Icon"><i class="icon customerIcon" aria-hidden="true" ></i></a></p></div>
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><p> &nbsp;Assigned to Me</p></div>
         </div>
         <div class="sideBarContent">
-            <div><span><a href="#"  class="sidebar-Icon"><i class="icon homeIcon"></i></a></span></div>
-            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><span> &nbsp;Task</span></div>
+            <div><a href="#"  class="sidebar-Icon"><i class="icon homeIcon"></i></a></div>
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><p> &nbsp;Task</p></div>
         </div>
         <br>
-        <div id="taskList" class="taskDivision"></div>  
-        <div *ngFor="let list of lists">
-                {{list.name}}
-        </div>         
+        <div class="sideBarContent" *ngFor="let list of lists">
+            <div><p><i class="listIcon"></i></p></div> 
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'" (click)="useList(list)">
+                <p> &nbsp;{{list.name}}</p>
+            </div>
+        </div>             
         <div class="sideBarContent">              
-            <div><span><i class="icon plusIcon"></i></span></div>
+            <div><p><i class="icon plusIcon"></i></p></div>
             <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'">
-                <span><input class="addList" type="text" id="listItem" (keyup)='addList($event)' placeholder= "New list"/></span>
+                <input class="addList" type="text" id="listItem" (keyup)='addList($event)' placeholder= "New list"/>
             </div>
         </div>
     </div>
+    <app-task [list] = "currentList"></app-task>
+</div>
