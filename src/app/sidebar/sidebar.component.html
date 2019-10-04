@@ -22,16 +22,18 @@
             <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><p> &nbsp;Task</p></div>
         </div>
         <br>
-        <div class="sideBarContent" *ngFor="let list of lists">
+        <div class="sideBarContent"  *ngFor="let list of lists" (click)="useList(list)">
             <div><p><i class="listIcon"></i></p></div> 
-            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'" (click)="useList(list)">
-                <p> &nbsp;{{list.name}}</p>
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'">
+                <input class="currentList" readonly="true" (blur)="changeRead($event)" (dblclick)="changeReadOnly($event)"
+                 [ngStyle]="{'color': list === currentList ? 'blue' : 'black' }"
+                 [(ngModel)] = "list.name" type="text" value="{{list.name}}"/>
             </div>
         </div>             
         <div class="sideBarContent">              
             <div><p><i class="icon plusIcon"></i></p></div>
             <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'">
-                <input class="addList" type="text" id="listItem" (keyup)='addList($event)' placeholder= "New list"/>
+                <input class="addList"  type="text" id="listItem" (keyup)='addList($event)' placeholder= "New list"/>
             </div>
         </div>
     </div>

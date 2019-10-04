@@ -1,12 +1,13 @@
 <div class="task-content">
     <div class="task">
-        <div id="taskHead" class="taskHead"><input type="text" class="taskSign" value="{{list.name}}" (keyup)="changeName(list,$event)"/><br>
+        <div id="taskHead" class="taskHead"><input type="text" [(ngModel)] = "list.name" class="taskSign" value="{{list.name}}"/><br>
             <div class="taskDiv">
                 <div *ngFor="let task of list.tasks">
-                    <div class="task-subParent">
-                        <input type="checkbox" class="task-checkbox" id="check"/>
+                    <div class="task-subParent" [ngClass]="task.isFinished? 'check':'task-subParent'" (click)="useTask(task)">
+                        <input type="checkbox" class="task-checkbox" [checked]="(task.isFinished)" (change)="checkStatus(task)" id="check"/>
                         <label for="check"></label>
-                        <input type="button" class="existingTask" value="{{task.name}}"/>
+                        <input type="button" [ngStyle]="{'color': task === currentTask ? 'royalblue' : 'black' }" 
+                        class="existingTask" value="{{task.name}}"/>
                     </div>
                 </div>
                 <div class="task-input ">
@@ -17,7 +18,7 @@
         </div>
     </div>
     <div class="taskPanel" id="taskPanel">
-        <app-sub-task></app-sub-task>
+        <app-sub-task [task]="currentTask"></app-sub-task>
     </div>
 </div>
 

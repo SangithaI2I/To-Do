@@ -1,14 +1,20 @@
 <div class="round">
-    <p><input type="checkbox" id="checkbox"/>
+    <p><input type="checkbox" [checked]="(task.isFinished)" (change)="checkStatus(task)" id="checkbox"/>
     <label for="checkbox"></label>
-    <span class="subTaskTitleSpan"></span><br>
+    <input type="text" class="subTaskTitle" [ngClass]="task.isFinished? 'check':'subTaskTitle'" value="{{task.name}}" (keyup)="changeTaskName($event)"/><br>
 </div>
 <div id="subTask">
-
+    <div *ngFor="let subTask of task.subTasks">
+        <div class="task-subParent" [ngClass]="subTask.isFinished? 'checkstyle':'task-subParent'">
+            <input type="checkbox" class="subtask-checkbox" (change)="checkSubTaskStatus(subTask)" id="check" [checked]="(subTask.isFinished)"/>
+            <label for="check"></label>
+            <input type="button" class="existingTask" value="{{subTask.name}}"/>
+        </div> 
+    </div>
 </div>
 <div  class="taskContent">
     <div><button class="sidebar-Icon addtask-button"><i class="icon plusIcon" aria-hidden="true"></i></button></div>
-    <div><input type="text" class="inputSubTask" id="inputSubTask" placeholder="Add sub Task"/></div>
+    <div><input type="text" class="inputSubTask" id="inputSubTask" placeholder="Add sub Task" (keyup)="addTask($event)"/></div>
 </div>
 <div class = "sidecontent addToDay" >
     <a href="#"><i class = "icon sunIcon"></i> &nbsp;Add To My Day</a>
@@ -28,7 +34,7 @@
     <a href="#"><i class = "icon addFileIcon"></i>&nbsp;Add file</a>
 </div>              
 <div class = "sidecontent addNotes">
-    <input  id = "taskinput" class="addSubNotes" type="text" placeholder= "Add Notes"/> 
+    <input  id = "taskinput" class="addsubnotes" type="text" placeholder= "Add Notes"/> 
 </div>
 <div class = "sidecontent exitNote" >
     <a id="exit">×</a>

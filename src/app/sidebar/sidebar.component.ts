@@ -21,7 +21,7 @@ export class Sidebar {
      * @param {Event} e - Event created whenever keyup performed.
      */
     addList(Event) {
-        if(Event.keyCode === 13) {
+        if(Event.keyCode === 13  && Event.target.value != "") {
             var list = {
                 id:this.listCount,
                 name:Event.target.value,
@@ -30,6 +30,8 @@ export class Sidebar {
             }
             this.lists[this.listCount] = list;
             this.listCount++;
+            this.currentList = list;
+            Event.target.value = "";
         }
     }
     currentList;
@@ -41,5 +43,19 @@ export class Sidebar {
     useList(list) {
         this.currentList = list;
         console.log(this.currentList);
+    }
+
+    /**It Dynamically change readonly status of input box
+     * @param event - event created whenever double click the input field
+     */
+    changeReadOnly(event) {
+        event.target.readOnly = !event.target.readOnly;
+    }
+
+    /**It Dynamically change readonly status of input box
+     * @param event - event created whenever double click the input field
+     */
+    changeRead(event) {
+        event.target.readOnly = true;
     }
 }

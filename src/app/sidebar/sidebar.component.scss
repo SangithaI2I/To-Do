@@ -94,21 +94,33 @@
 .sideBarContent {
     display: flex;
     align-content:center;
+    cursor: pointer;
     margin-top: 0.2rem;
 }
-.addList {
+.addList, .currentList {
     border: none;
-    padding: 1.5rem 0rem 1rem 1rem;
+    padding: 1.2rem 0.2rem 1rem 1rem;
+    width: 9rem;
     background-color: #f4f4f4;
 }
-.addList::placeholder,.inputTask::placeholder {
+.currentList {
+    cursor: pointer;    
+}
+.currentList:focus {
+    background-color: #f4f4f4;
+    outline: none;
+}
+
+.addList::placeholder,.inputTask::placeholder, .currentList::placeholder {
     color: #5c89f8;
 }
+
 .addList:focus, .inputTask:focus {
    outline: none;
    background-color: #ffffff;
 }
-.addList:focus::placeholder, .inputTask:focus::placeholder {
+
+.addList:focus::placeholder, .inputTask:focus::placeholder, .currentList:focus::placeholder{
     color:#4f4e4e;
 }
 .sideBarHeader{

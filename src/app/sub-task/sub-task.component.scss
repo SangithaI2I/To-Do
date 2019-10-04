@@ -1,9 +1,19 @@
 .round {
     position: relative;
 }
-.subTaskTitleSpan {
-    margin-left: 2rem;
+.subTaskTitle, .check{
+    margin: 0rem 2rem;
+    color: #3e69e4;
+    border: none;
+    width: 10rem;
+    font-size: 1rem;
+    background-color: #f4f4f4;
+    padding: 0.3rem 0rem;
 }
+.inputTask:focus, .subTaskTitle:focus {
+    outline: none;
+    background-color: #f4f4f4;
+ }
 .taskContent {
     display:flex;
     align-content:center;
@@ -15,7 +25,7 @@
 .addtask-button {
     background-color:#ffffff;
     border:none;
-    margin-top: 1.2rem;
+    margin: 1.1rem 0rem 1.2rem 3rem;
 }
 .icon {
     width: 1.1rem;
@@ -25,8 +35,8 @@
     content:url("../../assets/icons/plus.png");
     padding: 0.4rem 1.2rem 0.2rem 0.9rem;
 }
-.inputTask,.inputSubTask {
-    width: 98%;
+.inputSubTask {
+    width: 76%;
     padding: 1.5rem 16rem 1rem 0rem;
     border:none;
     color: #424141;    
@@ -34,7 +44,7 @@
 
 .inputSubTask {
     margin: 1.1rem 0rem 0rem 0rem;
-    padding: 1rem 0rem 1rem 0rem;
+    padding: 1rem 3rem 1rem 0rem;
 }
 
 .sidecontent {
@@ -42,11 +52,10 @@
  }
  
 .addToDay {
-    margin: 5%;
-    padding: 3%;
-    padding-left: 1%;
+    margin: 1rem 2rem 1rem 3rem;
+    padding: 1rem 1rem 1rem 1rem;
     background: #ffffff;
-    width: 85%;
+    width: 70%;
  }
  .sunIcon{
     content:url("../../assets/icons/sun.png");
@@ -63,29 +72,26 @@
     content:url("../../assets/icons/repeat.png");
 }
 .addFile {
-    margin: 5%;
-    padding: 3%;
-    padding-left: 1%;
+    margin: 1rem 2rem 1rem 3rem;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
     background: #ffffff;
-    width: 85%;
+    width: 71%;
  
 }
 .addFileIcon {
     content:url("../../assets/icons/fileattach.png");
 } 
 .addNotes {
-    margin: 5%;
-    padding: 1%;
-    padding-left: 0%;
+    margin: 1rem 2rem 1rem 3rem;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
     background: #ffffff;
-    width: 88%;
+    width: 71%;
  
 }
 .addsubnotes{
-    width: 100%;
-    padding: 1rem 1rem 1rem 1rem;;
+    padding: 1rem 6rem 1rem 1rem;
     font-size: 1rem;
-    height: 10%;
+    height: 5rem;
     border: none;
     outline: none;
     background: transparent;
@@ -105,4 +111,96 @@
     color: #4f4e4e;
     display: block;
     font-size: 0.9rem;
+}
+.round {
+    position: relative;
+}
+
+.round label {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 1.5rem;
+    left: 1rem;
+    position: absolute;
+    width: 1.5rem;
+}
+
+.round label:after {
+    border: 1px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 0.2rem;
+    opacity: 0;
+    position: absolute;
+    top: 0.3rem;
+    transform: rotate(-45deg);
+    width: 1rem;
+}
+
+.round input[type="checkbox"] {
+    visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+    background-color: #1579ce;
+    border-color: #1579ce;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+}
+
+.checked {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 28px;
+    left: 3px;
+    position: absolute;
+    top: 25px;
+    width: 28px;
+}
+.remindMe {
+    margin: 1rem 2rem 1rem 3rem;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    background: #ffffff;
+    width: 70%
+}
+ .task-subParent, .checkstyle{
+    display: flex;
+    margin-left: 2.6rem;
+    border-bottom-color: 0px 0px 0.1rem;
+    border-bottom: 2px solid #e5e5e5;
+    align-content: center;
+    width: 77%;
+}
+
+.task-checkbox, .subtask-checkbox {
+    background-color: #fff;
+    content:url(../../assets/icons/check.svg);
+    cursor: pointer;
+    margin-top: 1rem;
+    height: 3rem;
+    width: 2rem;
+}
+
+.subtask-checkbox {
+    height: 1rem;
+}
+
+.existingTask {
+    width: 97%;
+    padding: 1.5rem 0rem 1rem 4rem;
+    background-color:#ffffff;
+    text-align:left;
+    color: #424141;
+    border: none;
+    cursor: pointer;
+}
+.check, .checkstyle {
+    text-decoration:line-through;
 }

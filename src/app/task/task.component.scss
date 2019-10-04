@@ -16,6 +16,8 @@
     background-color: #ffffff;
     width: 53rem;
     font-size: 1.2rem;
+    height: 44rem;
+    overflow: scroll;
 }
 .taskSign {    
     margin-top: 1rem;
@@ -53,7 +55,7 @@
 .inputTask::placeholder {
     color: #5c89f8;
 }
-.inputTask:focus, .taskSign:focus {
+.inputTask:focus, .taskSign:focus, .existingTask:focus {
    outline: none;
    background-color: #ffffff;
 }
@@ -71,14 +73,14 @@
     color:#3e69e4;
     cursor: pointer;
 }
-.task-subParent {
+.task-subParent ,.check{
     display: flex;
     border-bottom-color: 0px 0px 0.1rem;
     border-bottom: 2px solid #e5e5e5;
     align-content: center;
     width: 97%;
 }
-.task-checkbox, .subtask-checkbox {
+.task-checkbox, .subtask-checkbox{
     background-color: #fff;
     content:url(../../assets/icons/check.svg);
     cursor: pointer;
@@ -98,6 +100,7 @@
 }
 .task-input {
     display: flex;
+    border-bottom: 0.2rem solid #e5e5e5;
     align-content: center;
 }
 .taskPanel a{
@@ -111,8 +114,8 @@
 .taskPanel {
     font-family:segoe-regular;
     height: 100%;
-    color: #4e4f4a;
-    width: 28rem;
+    color: #4e4f4a;   
+    width: 23rem;
     display: block;
     position: relative;
     background-color: #f4f4f4;
@@ -121,4 +124,8 @@
 .task-content {
     display: flex;
     height: 100%;
+}
+.check{
+    text-decoration:line-through;
+    color:black;
 }
