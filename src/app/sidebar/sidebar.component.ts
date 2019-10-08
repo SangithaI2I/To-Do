@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Key } from 'protractor';
+import { discardPeriodicTasks } from '@angular/core/testing';
 
 @Component({
   selector: 'side-bar',
@@ -9,6 +10,7 @@ import { Key } from 'protractor';
 export class Sidebar {
     status:boolean = false;
     toggleSidebar() {
+        this.currentList.alignSubTask = !this.currentList.alignSubTask;
         this.status = !this.status;
     }
     listCount:number = 0;
@@ -26,6 +28,8 @@ export class Sidebar {
                 id:this.listCount,
                 name:Event.target.value,
                 tasks:[],
+                alignSubTask: false,
+                taskLength: 0,
                 isFinished:false
             }
             this.lists[this.listCount] = list;

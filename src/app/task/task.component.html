@@ -1,5 +1,5 @@
 <div class="task-content">
-    <div class="task">
+    <div class="task" [ngClass]="list.alignSubTask ? 'align-margin' : 'remove-margin'">
         <div id="taskHead" class="taskHead"><input type="text" [(ngModel)] = "list.name" class="taskSign" value="{{list.name}}"/><br>
             <div class="taskDiv">
                 <div *ngFor="let task of list.tasks">
@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-    <div class="taskPanel" id="taskPanel">
+    <div>
         <app-sub-task [task]="currentTask"></app-sub-task>
     </div>
 </div>

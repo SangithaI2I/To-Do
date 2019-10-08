@@ -97,10 +97,12 @@
     background: transparent;
 }
 .exitNote {
+    content:url("../../assets/icons/exit.png");
     margin: 4%;
     padding: 0%;
-    padding-left: 1%;
-    width: 85%;
+    padding-left: 7%;
+    width: 5%;
+    cursor: pointer;
 }
 .task-sub{
     display: flex;
@@ -203,4 +205,18 @@
 }
 .check, .checkstyle {
     text-decoration:line-through;
+}
+
+.taskPanel, .showTaskPanel {
+    font-family: segoe-regular;
+    height: 44rem;
+    color: #4e4f4a;
+    width: 23rem;
+    display: none;
+    position: relative;
+    background-color: #f4f4f4;
+    overflow-x: auto;
+}
+.showTaskPanel {
+    display:block;
 }

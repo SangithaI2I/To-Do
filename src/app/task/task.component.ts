@@ -28,13 +28,22 @@ export class TaskComponent implements OnInit {
 				id:this.list.tasks.length,
 				name:event.target.value,
 				subTasks:[],
+				info:false,
 				isFinished:false
 			}
 			this.list.tasks[this.count] = task;
+			this.list.taskLength = this.getTaskLength();
 			this.currentTask = task;
 			event.target.value = "";
 	  	}
 	  
+	}
+
+	/**
+	 * It return number of pending tasks in the list.
+	 */
+	getTaskLength(): number {
+		return this.list.tasks.filter(task => task.isFinished === false).length;
 	}
 	
 	currentTask;
@@ -43,6 +52,7 @@ export class TaskComponent implements OnInit {
 	 * @param {Object} task - task which is clicked 
 	 */
 	useTask(task) {
+		task.info = true;
 		this.currentTask = task;
 	}
 
@@ -51,6 +61,7 @@ export class TaskComponent implements OnInit {
 	 */
 	checkStatus(task) {
 		task.isFinished = !task.isFinished;
+		this.list.taskLength = this.getTaskLength();
 		this.list.tasks[task.id] = task;
 		console.log(this.list);
 	}

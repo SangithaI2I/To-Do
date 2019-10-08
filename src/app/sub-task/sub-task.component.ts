@@ -41,7 +41,7 @@ export class SubTaskComponent implements OnInit {
         }
     
   }
-    /**
+  /**
 	 * It Check whether the task is finished or not.
 	 */
 	checkStatus(task) {
@@ -55,5 +55,13 @@ export class SubTaskComponent implements OnInit {
 	checkSubTaskStatus(subTask) {
 		subTask.isFinished = !subTask.isFinished;
 		this.task.subTasks[subTask.id] = subTask;
-	}
+  }
+  
+  /**
+	 * It close subTaskPanel.
+	 */
+	closeSubTaskPanel(task) {
+		task.info = !task.info;
+		this.task = task;
+    }
 }

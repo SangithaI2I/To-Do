@@ -17,7 +17,7 @@
     width: 53rem;
     font-size: 1.2rem;
     height: 44rem;
-    overflow: scroll;
+    overflow: auto;
 }
 .taskSign {    
     margin-top: 1rem;
@@ -37,7 +37,6 @@
 }
 .taskContent {
     display:flex;
-    align-content:center;
     border-bottom: 2px solid #e5e5e5;
 }
 .sidebar-Icon {
@@ -111,15 +110,11 @@
     display: flex;
     align-content: center;
 }
-.taskPanel {
-    font-family:segoe-regular;
-    height: 100%;
-    color: #4e4f4a;   
-    width: 23rem;
-    display: block;
-    position: relative;
-    background-color: #f4f4f4;
-    overflow-x: hidden;
+.align-margin {
+    width: 69rem;
+}
+.remove-margin {
+    width: 53rem;
 }
 .task-content {
     display: flex;

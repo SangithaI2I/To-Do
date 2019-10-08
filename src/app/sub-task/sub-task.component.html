@@ -1,3 +1,4 @@
+<div class="taskPanel" id="taskPanel"  [ngClass]="task.info? 'showTaskPanel':'taskPanel'">
 <div class="round">
     <p><input type="checkbox" [checked]="(task.isFinished)" (change)="checkStatus(task)" id="checkbox"/>
     <label for="checkbox"></label>
@@ -36,6 +37,6 @@
 <div class = "sidecontent addNotes">
     <input  id = "taskinput" class="addsubnotes" type="text" placeholder= "Add Notes"/> 
 </div>
-<div class = "sidecontent exitNote" >
-    <a id="exit">×</a>
+<div class = "sidecontent exitNote" (click)="closeSubTaskPanel(task)">
+</div>
 </div>
