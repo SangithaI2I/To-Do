@@ -15,7 +15,7 @@
 </div>
 <div  class="taskContent">
     <div><button class="sidebar-Icon addtask-button"><i class="icon plusIcon" aria-hidden="true"></i></button></div>
-    <div><input type="text" class="inputSubTask" id="inputSubTask" placeholder="Add sub Task" (keyup)="addTask($event)"/></div>
+    <div><input type="text" class="inputSubTask" id="inputSubTask" placeholder="Add sub Task" (keyup.enter)="addTask($event)"/></div>
 </div>
 <div class = "sidecontent addToDay" >
     <a href="#"><i class = "icon sunIcon"></i> &nbsp;Add To My Day</a>

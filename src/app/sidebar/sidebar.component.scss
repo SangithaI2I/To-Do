@@ -27,6 +27,16 @@
     overflow-x: hidden;
     height: 44rem;
 }
+.defaultTask {
+    color: #3e69e4;
+    font-weight: bold;
+    padding: 0rem 7.2rem 0rem 0rem;
+}
+.inActivedefaultTask {
+    color: #58544b;
+    font-weight: lighter;
+    padding: 0rem 7.2rem 0rem 0rem;
+}
 .closeSideBar {
     width: 3rem;
 }
@@ -47,7 +57,7 @@
     font-size: 0.9rem;
 }
 .sidebar-Icon {
-    padding: 0.2rem 0.8rem 1rem 0.9rem;
+    padding: 0rem 0.3rem 0rem 0.5rem;
 }
 .sidebar-menuIcon {
     padding: 1rem 0rem 2rem 0.4rem;
@@ -79,6 +89,8 @@
     display:inline;
     height: 1.5rem;
     width:1.2rem;
+    padding: 0rem 0rem 0rem 0.5rem;
+
 }
 .customerIcon{
     content:url("../../assets/icons/custom.png");
@@ -86,6 +98,7 @@
 .homeIcon{
     content:url("../../assets/icons/home.svg");
     filter: invert(43%) sepia(63%) saturate(1761%) hue-rotate(213deg) brightness(93%) contrast(93%);
+    padding: 1rem 0rem 1rem 0rem;
 }
 .plusIcon{
     content:url("../../assets/icons/plus.png");
@@ -95,7 +108,7 @@
     display: flex;
     align-content:center;
     cursor: pointer;
-    margin-top: 0.2rem;
+    margin-top: 0rem;
 }
 .addList, .currentList {
     border: none;

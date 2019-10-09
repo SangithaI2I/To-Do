@@ -22,7 +22,7 @@ export class TaskComponent implements OnInit {
 	 * @param {Event} e - Event created whenever keyup performed.
 	 */
     addTask(event){
-	  	if(event.key ===  "Enter" && event.target.value != "") { 
+	  	if(event.target.value != "") { 
 		  	this.count = this.list.tasks.length;
 			var task = {
 				id:this.list.tasks.length,

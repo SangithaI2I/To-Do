@@ -17,9 +17,12 @@
             <div><p><a href="#"  class="sidebar-Icon"><i class="icon customerIcon" aria-hidden="true" ></i></a></p></div>
             <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><p> &nbsp;Assigned to Me</p></div>
         </div>
-        <div class="sideBarContent">
+        <div class="sideBarContent" (click)="useList(defaultList)">
             <div><a href="#"  class="sidebar-Icon"><i class="icon homeIcon"></i></a></div>
-            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'"><p> &nbsp;Task</p></div>
+            <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'">
+                <p class="defaultTask" [ngClass]="defaultList === currentList ? 'defaultTask' : 'inActivedefaultTask'"> &nbsp;Tasks</p>
+            </div>
+            <div><p>{{defaultList.taskLength}}</p></div>
         </div>
         <br>
         <div class="sideBarContent"  *ngFor="let list of lists" (click)="useList(list)">
@@ -34,7 +37,7 @@
         <div class="sideBarContent">              
             <div><p><i class="icon plusIcon"></i></p></div>
             <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'">
-                <input class="addList"  type="text" id="listItem" (keyup)='addList($event)' placeholder= "New list"/>
+                <input class="addList"  type="text" id="listItem" (keyup.enter)='addList($event)' placeholder= "New list"/>
             </div>
         </div>
     </div>

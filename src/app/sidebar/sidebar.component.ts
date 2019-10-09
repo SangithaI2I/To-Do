@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Key } from 'protractor';
 import { discardPeriodicTasks } from '@angular/core/testing';
 
@@ -7,14 +7,26 @@ import { discardPeriodicTasks } from '@angular/core/testing';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class Sidebar {
+export class Sidebar implements OnInit {
+    ngOnInit() {
+        this.currentList = this.defaultList;
+    }
     status:boolean = false;
     toggleSidebar() {
-        this.currentList.alignSubTask = !this.currentList.alignSubTask;
         this.status = !this.status;
+        this.currentList.alignSubTask = !this.currentList.alignSubTask;
     }
     listCount:number = 0;
     lists: Object[] = [];
+    currentList;
+    
+    defaultList = {
+        name: "Tasks..",
+        tasks:[],
+        alignSubTask: false,
+        taskLength: 0,
+        isFinished:false
+    }
 
     /**
      * It check whether the List Name value is null and add that given list 
@@ -23,7 +35,7 @@ export class Sidebar {
      * @param {Event} e - Event created whenever keyup performed.
      */
     addList(Event) {
-        if(Event.keyCode === 13  && Event.target.value != "") {
+        if(Event.target.value != "") {
             var list = {
                 id:this.listCount,
                 name:Event.target.value,
@@ -38,7 +50,6 @@ export class Sidebar {
             Event.target.value = "";
         }
     }
-    currentList;
 
     /**
      * It will assign the selected list to global list.

@@ -18,7 +18,7 @@ export class SubTaskComponent implements OnInit {
 	 * @param event - Event created whenever keyup performed.
 	 */
   	changeTaskName(event) {
-		if(event.key === "Enter" && event.target.value != "") {
+		if(event.target.value != "") {
 			this.task.name = event.target.value;
 		}
     }
