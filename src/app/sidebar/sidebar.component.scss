@@ -20,17 +20,16 @@
 }
 .sideBar, .closeSideBar{
     font-family:segoe-regular;
-    height: 100%;
+    height: 45rem;
     width: 17rem;
     position: relative;
     background-color: #f4f4f4;
-    overflow-x: hidden;
-    height: 44rem;
+    overflow:auto;
 }
 .defaultTask {
     color: #3e69e4;
     font-weight: bold;
-    padding: 0rem 7.2rem 0rem 0rem;
+    padding: 0rem 7.7rem 0rem 0rem;
 }
 .inActivedefaultTask {
     color: #58544b;
@@ -57,7 +56,7 @@
     font-size: 0.9rem;
 }
 .sidebar-Icon {
-    padding: 0rem 0.3rem 0rem 0.5rem;
+    padding: 0rem 1.3rem 0rem 1rem;
 }
 .sidebar-menuIcon {
     padding: 1rem 0rem 2rem 0.4rem;
@@ -89,8 +88,12 @@
     display:inline;
     height: 1.5rem;
     width:1.2rem;
-    padding: 0rem 0rem 0rem 0.5rem;
+    padding: 0rem 0rem 0rem 1rem;
 
+}
+.sidecontent {
+    height: 100%;
+    overflow: auto;
 }
 .customerIcon{
     content:url("../../assets/icons/custom.png");
@@ -382,10 +385,6 @@
    border-bottom-width: thin;
 
 } 
-.sidecontent {
-   margin-top:10%;
-}
-
 .block {
     display: block;
 }

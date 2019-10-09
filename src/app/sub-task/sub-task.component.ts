@@ -12,22 +12,22 @@ export class SubTaskComponent implements OnInit {
 
     ngOnInit() {
     }
-
+    status:boolean=false;
     /**
-	 * It will Rename task title.
-	 * @param event - Event created whenever keyup performed.
-	 */
-  	changeTaskName(event) {
-		if(event.target.value != "") {
-			this.task.name = event.target.value;
-		}
+     * It will Rename task title.
+     * @param event - Event created whenever keyup performed.
+     */
+      changeTaskName(event) {
+        if(event.target.value != "") {
+            this.task.name = event.target.value;
+        }
     }
     
     /**
-	 * It check whether the input value is null and add that given sub-task 
-	 * to corresponding task when enter is pressed using event.
-	 * @param {Event} e - Event created whenever keyup performed.
-	 */
+     * It check whether the input value is null and add that given sub-task 
+     * to corresponding task when enter is pressed using event.
+     * @param {Event} e - Event created whenever keyup performed.
+     */
     addTask(event){
         if(event.key ===  "Enter") { 
             this.count = this.task.subTasks.length;
@@ -42,26 +42,32 @@ export class SubTaskComponent implements OnInit {
     
   }
   /**
-	 * It Check whether the task is finished or not.
-	 */
-	checkStatus(task) {
-		task.isFinished = !task.isFinished;
-		this.task = task;
+     * It Check whether the task is finished or not.
+     */
+    checkStatus(task) {
+        task.isFinished = !task.isFinished;
+        this.task = task;
     }
     
     /**
-	 * It Check whether the sub-task is finished or not.
-	 */
-	checkSubTaskStatus(subTask) {
-		subTask.isFinished = !subTask.isFinished;
-		this.task.subTasks[subTask.id] = subTask;
+     * It Check whether the sub-task is finished or not.
+     */
+    checkSubTaskStatus(subTask) {
+        subTask.isFinished = !subTask.isFinished;
+        this.task.subTasks[subTask.id] = subTask;
   }
   
   /**
-	 * It close subTaskPanel.
-	 */
-	closeSubTaskPanel(task) {
-		task.info = !task.info;
-		this.task = task;
+     * It close subTaskPanel.
+     */
+    closeSubTaskPanel(task) {
+        task.info = !task.info;
+        this.task = task;
     }
+
+    deleteTaskStatus(task) {
+        this.status = !this.status;
+
+    }
+
 }
