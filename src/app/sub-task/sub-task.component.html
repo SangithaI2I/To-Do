@@ -10,7 +10,7 @@
                 <div class="task-subParent" [ngClass]="subTask.isFinished? 'checkstyle':'task-subParent'">
                     <input type="checkbox" class="subtask-checkbox" (change)="checkSubTaskStatus(subTask)" id="check" [checked]="(subTask.isFinished)"/>
                     <label for="check"></label>
-                    <input type="button" class="existingTask" value="{{subTask.name}}"/>
+                    <p class="existingTask">{{subTask.name}}</p>
                     <i class = "subTask-delete-icon" (click)="deleteSubTask(subTask)"></i>
                 </div> 
             </div>

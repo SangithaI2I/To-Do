@@ -22,7 +22,7 @@
             <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'">
                 <p class="defaultTask" [ngClass]="defaultList === currentList ? 'defaultTask' : 'inActivedefaultTask'"> &nbsp;Tasks</p>
             </div>
-            <div><p>{{defaultList.taskLength}}</p></div>
+            <div *ngIf="defaultList.taskLength>0"><p>{{defaultList.taskLength}}</p></div>
         </div>
         <br>
         <div class="sideBarContent"  *ngFor="let list of lists" (click)="useList(list)">
@@ -32,12 +32,12 @@
                  [ngStyle]="{'color': list === currentList ? 'blue' : 'black' }"
                  [(ngModel)] = "list.name" type="text" value="{{list.name}}"/>
             </div>
-            <div><p>{{list.taskLength}}</p></div>
+            <div *ngIf="list.taskLength>0"><p>{{list.taskLength}}</p></div>
         </div>             
         <div class="sideBarContent">              
             <div><p><i class="icon plusIcon"></i></p></div>
             <div class="sideBarText" [ngClass] = "status ? 'none' : 'block'">
-                <input class="addList"  type="text" id="listItem" (keyup.enter)='addList($event)' placeholder= "New list"/>
+                <input class="addList"  type="text" (keyup.enter)='addList($event)' placeholder= "New list"/>
             </div>
         </div>
     </div>

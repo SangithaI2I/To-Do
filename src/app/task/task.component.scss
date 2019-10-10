@@ -105,10 +105,15 @@
 }
 
 .existingTask ,.check {
-    width: 97%;
-    padding: 1.5rem 0rem 1rem 4rem;
-    background-color:#ffffff;
-    text-align:left;
+    width: 50%;
+    font-family: segoe-regular;
+    font-weight: lighter;
+    font-size: 1rem;
+    word-wrap: break-word;
+    word-break: break-word;
+    padding: 0.5rem 0rem 1rem 4rem;
+    background-color: #ffffff;
+    text-align: left;
     color: #424141;
     border: none;
     cursor: pointer;
@@ -149,8 +154,9 @@
 
 .remainingTaskText{
     width: 4rem;
+    margin: 2rem 1rem 0rem 15rem;
     color: #3e69e4;
     font-size: 1rem;
     font-family: segoe-regular;
-    font-weight: lighter;
+    font-weight: lighter
 }

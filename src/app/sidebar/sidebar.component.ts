@@ -35,7 +35,7 @@ export class Sidebar implements OnInit {
      * @param {Event} e - Event created whenever keyup performed.
      */
     addList(Event) {
-        if(Event.target.value != "") {
+        if(Event.target.value.trim() != "") {
             var list = {
                 id:this.listCount,
                 name:Event.target.value,

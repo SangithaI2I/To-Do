@@ -6,8 +6,8 @@
                     <div class="task-subParent" (click)="useTask(task)">
                         <input type="checkbox" class="task-checkbox" [checked]="(task.isFinished)" (change)="checkStatus(task)" id="check"/>
                         <label for="check"></label>
-                        <input type="button" [ngStyle]="{'color': task === currentTask ? 'royalblue' : 'black' }" 
-                        class="existingTask" [ngClass]="task.isFinished? 'check':'existingTask'" value="{{task.name}}"/>
+                        <p class="existingTask" [ngStyle]="{'color': task === currentTask ? 'royalblue' : 'black' }" 
+                        [ngClass]="task.isFinished? 'check':'existingTask'">{{task.name}}</p>
                         <p class="remainingTaskText">{{task.subTaskLength}} of {{task.subTasks.length}}</p>
                     </div>
                 </div>

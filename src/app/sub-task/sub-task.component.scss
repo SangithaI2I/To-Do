@@ -246,10 +246,13 @@ width: 79%;
 }
 
 .existingTask {
-    width: 97%;
-    padding: 1.5rem 0rem 1rem 0.5rem;
+    width: 45%;
+    word-wrap: break-word;
+    word-break: break-word;
+    padding: 1rem 0rem 1rem 0.5rem;
     background-color:#ffffff;
     text-align:left;
+    margin: 0%;
     color: #424141;
     border: none;
     cursor: pointer;
