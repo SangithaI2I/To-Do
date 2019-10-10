@@ -7,17 +7,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SubTaskComponent implements OnInit {
     @Input() task;
+    @Input() list;
+
     count: number = 0;
     constructor() { }
 
     ngOnInit() {
     }
     status:boolean=false;
+    
     /**
      * It will Rename task title.
      * @param event - Event created whenever keyup performed.
      */
-      changeTaskName(event) {
+    changeTaskName(event) {
         if(event.target.value != "") {
             this.task.name = event.target.value;
         }
@@ -31,17 +34,19 @@ export class SubTaskComponent implements OnInit {
     addTask(event){
         if(event.key ===  "Enter") { 
             this.count = this.task.subTasks.length;
-          var subTask = {
-              id:this.count,
-              name:event.target.value,
-              isFinished:false
-          }
-          this.task.subTasks[this.count] = subTask;
-          event.target.value = "";
+            var subTask = {
+                id:this.count,
+                name:event.target.value,                
+                isFinished:false
+            }
+            this.task.subTasks[this.count] = subTask;
+            event.target.value = "";
+            this.task.subTaskLength = this.getSubTaskLength();          
         }
     
-  }
-  /**
+    }
+
+    /**
      * It Check whether the task is finished or not.
      */
     checkStatus(task) {
@@ -54,10 +59,10 @@ export class SubTaskComponent implements OnInit {
      */
     checkSubTaskStatus(subTask) {
         subTask.isFinished = !subTask.isFinished;
-        this.task.subTasks[subTask.id] = subTask;
-  }
+        this.task.subTaskLength = this.getSubTaskLength();
+    }
   
-  /**
+    /**
      * It close subTaskPanel.
      */
     closeSubTaskPanel(task) {
@@ -65,9 +70,39 @@ export class SubTaskComponent implements OnInit {
         this.task = task;
     }
 
-    deleteTaskStatus(task) {
+    /**
+     *It changes the delete task status dynamically. 
+     */
+    deleteTaskStatus() {
         this.status = !this.status;
-
     }
 
+    /**
+     * It delete regarding subtask from task array.
+     * @param task - task which consist that selected subtask to perform delete.
+     */
+    deleteTask(task) {
+        this.list.tasks.splice(this.list.tasks.indexOf(task), 1);
+        this.list.taskLength = this.list.tasks.length;
+        console.log(this.list.tasks);
+        this.deleteTaskStatus();       
+        this.closeSubTaskPanel(task);
+    }
+
+    /**
+	 * It return number of pending tasks in the list.
+	 */
+	getSubTaskLength(): number {
+		return this.task.subTasks.filter(subTask => subTask.isFinished === false).length;
+    }
+    
+    /**
+     * It delete regarding subtask from task array.
+     * @param task - task which consist that selected subtask to perform delete.
+     */
+    deleteSubTask(subTask) {
+        console.log(this.list);
+        this.task.subTasks.splice(this.task.subTasks.indexOf(subTask), 1);
+        this.task.subTaskLength = this.task.subTasks.length;
+    }
 }

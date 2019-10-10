@@ -1,55 +1,56 @@
 <div class="taskPanel" id="taskPanel"  [ngClass]="task.info? 'showTaskPanel':'taskPanel'">
-<div class="panel-head">
-    <div class="round">
-        <p><input type="checkbox" [checked]="(task.isFinished)" (change)="checkStatus(task)" id="checkbox"/>
-        <label for="checkbox"></label>
-        <input type="text" class="subTaskTitle" [ngClass]="task.isFinished? 'check':'subTaskTitle'" value="{{task.name}}" (keyup)="changeTaskName($event)"/><br>
-    </div>
-    <div id="subTask">
-        <div *ngFor="let subTask of task.subTasks">
-            <div class="task-subParent" [ngClass]="subTask.isFinished? 'checkstyle':'task-subParent'">
-                <input type="checkbox" class="subtask-checkbox" (change)="checkSubTaskStatus(subTask)" id="check" [checked]="(subTask.isFinished)"/>
-                <label for="check"></label>
-                <input type="button" class="existingTask" value="{{subTask.name}}"/>
-            </div> 
+    <div class="panel-head">
+        <div class="round">
+            <p><input type="checkbox" [checked]="(task.isFinished)" (change)="checkStatus(task)" id="checkbox"/>
+            <label for="checkbox"></label>
+            <input type="text" class="subTaskTitle" [ngClass]="task.isFinished? 'check':'subTaskTitle'" value="{{task.name}}" (keyup)="changeTaskName($event)"/><br>
+        </div>
+        <div id="subTask">
+            <div *ngFor="let subTask of task.subTasks">
+                <div class="task-subParent" [ngClass]="subTask.isFinished? 'checkstyle':'task-subParent'">
+                    <input type="checkbox" class="subtask-checkbox" (change)="checkSubTaskStatus(subTask)" id="check" [checked]="(subTask.isFinished)"/>
+                    <label for="check"></label>
+                    <input type="button" class="existingTask" value="{{subTask.name}}"/>
+                    <i class = "subTask-delete-icon" (click)="deleteSubTask(subTask)"></i>
+                </div> 
+            </div>
+        </div>
+        <div  class="taskContent">
+            <div><button class="sidebar-Icon addtask-button"><i class="icon plusIcon" aria-hidden="true"></i></button></div>
+            <div><input type="text" class="inputSubTask" id="inputSubTask" placeholder="Next step" (keyup.enter)="addTask($event)"/></div>
         </div>
     </div>
-    <div  class="taskContent">
-        <div><button class="sidebar-Icon addtask-button"><i class="icon plusIcon" aria-hidden="true"></i></button></div>
-        <div><input type="text" class="inputSubTask" id="inputSubTask" placeholder="Next step" (keyup.enter)="addTask($event)"/></div>
+    <div class = "sidecontent addToDay" >
+        <a href="#"><i class = "icon sunIcon"></i> &nbsp;Add To My Day</a>
+    </div>                      
+    <div class ="remindMe">
+        <div class = "sidecontent">
+            <a href="#"><i class = "icon alarmIcon"></i>&nbsp;Remaind me</a>
+        </div>
+        <div class = "sidecontent">
+            <a href="#"><i class = "icon calendarIcon"></i>&nbsp;Add due date</a>
+        </div>
+        <div class = "sidecontent">
+            <a href="#"><i class = "icon repeatIcon"></i>&nbsp;Repeat</a>
+        </div>
+    </div>             
+    <div class = "sidecontent addFile">
+        <a href="#"><i class = "icon addFileIcon"></i>&nbsp;Add file</a>
+    </div>              
+    <div class = "sidecontent addNotes">
+        <input  id = "taskinput" class="addsubnotes" type="text" placeholder= "Add Notes"/> 
     </div>
-</div>
-<div class = "sidecontent addToDay" >
-    <a href="#"><i class = "icon sunIcon"></i> &nbsp;Add To My Day</a>
-</div>                      
-<div class ="remindMe">
     <div class = "sidecontent">
-        <a href="#"><i class = "icon alarmIcon"></i>&nbsp;Remaind me</a>
+        <i class = "exitNote" (click)="closeSubTaskPanel(task)"></i>
+        <i class = "delete-icon" (click)="deleteTaskStatus()"></i>
     </div>
-    <div class = "sidecontent">
-        <a href="#"><i class = "icon calendarIcon"></i>&nbsp;Add due date</a>
-    </div>
-    <div class = "sidecontent">
-        <a href="#"><i class = "icon repeatIcon"></i>&nbsp;Repeat</a>
-    </div>
-</div>             
-<div class = "sidecontent addFile">
-    <a href="#"><i class = "icon addFileIcon"></i>&nbsp;Add file</a>
-</div>              
-<div class = "sidecontent addNotes">
-    <input  id = "taskinput" class="addsubnotes" type="text" placeholder= "Add Notes"/> 
-</div>
-<div class = "sidecontent">
-    <i class = "exitNote" (click)="closeSubTaskPanel(task)"></i>
-    <i class = "delete-icon" (click)="deleteTaskStatus(task)"></i>
-</div>
-<div class="modal" [ngClass]="status ? 'show':'hide'" >
+    <div class="modal" [ngClass]="status ? 'show':'hide'" >
         <div class="modal-content">
-            <span class="close" (click)="deleteTaskStatus(task)">&times;</span>
+            <span class="close" (click)="deleteTaskStatus()">&times;</span>
             <p>'{{task.name}}' will be permanently deleted..</p>
             <p>You won't able to undo this action</p>
-            <button class="button button-danger">ok</button>
-            <button class="button button-default" (click)="deleteTaskStatus(task)">cancel</button>
+            <button class="button button-danger" (click)="deleteTask(task)">ok</button>
+            <button class="button button-default" (click)="deleteTaskStatus()">cancel</button>
         </div>
-</div>
+    </div>
 </div>

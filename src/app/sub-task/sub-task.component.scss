@@ -2,17 +2,21 @@
     font-family:segoe;
     src:url("../../assets/font/seguisb.ttf");
 }
+
 @font-face {
     font-family:segoe-regular;
     src:url("../../assets/font/segoe-regular.ttf");
 }
+
 @font-face {
     font-family:segoe-Bold;
     src:url("../../assets/font/segoe-ui-bold.ttf");
 }
+
 .round {
     position: relative;
 }
+
 .subTaskTitle, .check{
     margin: 0rem 2rem;
     color: #3e69e4;
@@ -21,33 +25,41 @@
     font-size: 1rem;
     padding: 0.3rem 0rem;
 }
+
 .inputTask:focus, .subTaskTitle:focus, .inputSubTask:focus {
     outline: none;
     background-color: #f4f4f4;
  }
+
  .inputSubTask:focus {
     background-color: #ffffff; 
  }
+
 .taskContent {
     display:flex;
     align-content:center;
 }
+
 .sidebar-Icon {
     padding: 0.2rem 0.8rem 1rem 0.9rem;
 }
+
 .addtask-button {
     background-color:#ffffff;
     border:none;
     margin: 1.1rem 0rem 1.2rem 0rem;
 }
+
 .icon {
     width: 1.1rem;
     height: 1.1rem;
 }
+
 .plusIcon{
     content:url("../../assets/icons/plus.png");
     padding: 0.4rem 1.2rem 0.2rem 0.9rem;
 }
+
 .inputSubTask {
     width: 76%;
     border:none;
@@ -67,20 +79,25 @@
     width: 70%;
     border: 1px solid #eaeaea;
  }
- .sunIcon{
-    content:url("../../assets/icons/sun.png");
-    filter: invert(54%) sepia(3%) saturate(1543%) hue-rotate(245deg) brightness(80%) contrast(81%);
+
+.sunIcon{
+content:url("../../assets/icons/sun.png");
+filter: invert(54%) sepia(3%) saturate(1543%) hue-rotate(245deg) brightness(80%) contrast(81%);
 }
+
 .alarmIcon {
     content:url("../../assets/icons/alarm.png");
  }
+ 
 .calendarIcon{
     content:url("../../assets/icons/calender.png");
     filter: invert(54%) sepia(3%) saturate(1543%) hue-rotate(245deg) brightness(80%) contrast(81%);
 }
+
 .repeatIcon {
     content:url("../../assets/icons/repeat.png");
 }
+
 .addFile {
     margin: 1rem 2rem 1rem 3rem;
     padding: 0.5rem 0.5rem 0.5rem 1.5rem;
@@ -89,9 +106,11 @@
     border: 1px solid #eaeaea;
  
 }
+
 .addFileIcon {
     content:url("../../assets/icons/fileattach.png");
 } 
+
 .addNotes {
     margin: 1rem 2rem 1rem 3rem;
     padding: 0.5rem 0.5rem 0.5rem 1.5rem;
@@ -100,6 +119,7 @@
     border: 1px solid #eaeaea;
  
 }
+
 .addsubnotes{
     padding: 1rem 6rem 1rem 1rem;
     font-size: 1rem;
@@ -108,7 +128,8 @@
     outline: none;
     background: transparent;
 }
-.exitNote, .delete-icon {
+
+.exitNote, .delete-icon, .subTask-delete-icon {
     content:url("../../assets/icons/exit.png");
     margin: 4%;
     padding: 0%;
@@ -117,21 +138,30 @@
     cursor: pointer;
 }
 
-.delete-icon {
+.delete-icon, .subTask-delete-icon {
     content:url("../../assets/icons/delete.png");
     padding-left: 65%;
+}
+
+.subTask-delete-icon{
+    padding-left: 31%;
+    margin: 1.5rem 0rem 0rem 0rem;
+    width: 1rem;
+    height: 1rem;
 }
 
 .task-sub{
     display: flex;
     align-content: center;
 }
+
 .sidecontent a{
     text-decoration: none;
     color: #4f4e4e;
     display: block;
     font-size: 0.9rem;
 }
+
 .round {
     position: relative;
 }
@@ -191,14 +221,15 @@
     width: 70%;
     border: 1px solid #eaeaea;
 }
- .task-subParent, .checkstyle{
-    display: flex;
-    margin-left: 2rem;
-    border-bottom-color: 0px 0px 0.1rem;
-    border-bottom: 2px solid #e5e5e5;
-    align-content: center;
-    width: 79%;
- }
+
+.task-subParent, .checkstyle{
+display: flex;
+margin-left: 2rem;
+border-bottom-color: 0px 0px 0.1rem;
+border-bottom: 2px solid #e5e5e5;
+align-content: center;
+width: 79%;
+}
 
 .task-checkbox, .subtask-checkbox {
     background-color: #fff;
@@ -211,17 +242,19 @@
 
 .subtask-checkbox {
     height: 1rem;
+    margin-top: 1.5rem;
 }
 
 .existingTask {
     width: 97%;
-    padding: 1.5rem 0rem 1rem 4rem;
+    padding: 1.5rem 0rem 1rem 0.5rem;
     background-color:#ffffff;
     text-align:left;
     color: #424141;
     border: none;
     cursor: pointer;
 }
+
 .check, .checkstyle {
     text-decoration:line-through;
 }
@@ -236,15 +269,18 @@
     background-color: #f4f4f4;
     overflow-x: auto;
 }
+
 .showTaskPanel {
     display:block;
 }
+
 .panel-head{
     background-color: #ffffff;
     margin: 1rem 1.5rem 1rem 3rem;
     padding-top: 0.2rem;
     border: 1px solid #eaeaea;
 }
+
 .modal{
     position: fixed;
     font-family:segoe-regular;
@@ -258,12 +294,15 @@
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4); 
 }
+
 .show {
     display: block;
 }
+
 .hide{
     display: none;
 }
+
 .modal-content,.show-modal-content{
 background-color: #fefefe;
 text-align: center;
@@ -272,7 +311,6 @@ padding: 20px;
 border: 1px solid #888;
 width: 37%;
 }
-
 
 .close {
 color: #aaaaaa;
@@ -291,11 +329,13 @@ cursor: pointer;
 .button {
     cursor: pointer
 }
+
 .button-default {
     background-color: rgb(248, 248, 248);
     border: 1px solid rgba(204, 204, 204, 0.5);
     color: #5D5D5D;
 }
+
 .button-danger {
     background-color: #f44336;
     border: 1px solid #d32f2f;
