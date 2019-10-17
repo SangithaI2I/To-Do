@@ -481,7 +481,7 @@
 }
 
 .sidebar-Icon {
-  padding: 0.2rem 0.8rem 1rem 0.9rem;
+  padding: 0.2rem 0.8rem 0rem 0.9rem;
 }
 
 .addtask-button {
@@ -596,6 +596,8 @@
 }
 .set-flex {
   display: flex;
+  font-family:segoe-regular;
+  color: #3c6ae4;
+  font-weight: lighter;
   margin: 0rem 0rem 0rem 0rem;
-  font-family: segoe-regular;
 }
