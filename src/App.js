@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -24,7 +23,7 @@ class Sidebar extends React.Component {
   render() {
      return (
       <div className="sideBar" id="sideBar">  
-      <a href="#" id="menu"  className="sidebar-menuIcon"><img src="assets/icons/menu.svg" className="menuIconDivision"/></a>
+      <a id="menu"  className="sidebar-menuIcon"><img src="assets/icons/menu.svg" className="menuIconDivision"/></a>
       <div className="sideBarContent">
           <div><p><a href="#"  className="sidebar-Icon"><i className="icon sunIcon" aria-hidden="true"></i></a></p></div>
           <div className="sideBarText" ><p> &nbsp;My Day</p></div>
@@ -55,7 +54,7 @@ class Sidebar extends React.Component {
       <form  className="sideBarContent" >        
           <div><p><i className="icon plusIcon"></i></p></div>
           <div className="sideBarText">
-              <input className="addList"  onKeyUp={this.handleSubmit} placeholder= "New list" />
+              <input className="addList" onKeyUp={this.handleSubmit} placeholder= "New list" />
           </div>
       </form>
     </div>
@@ -64,6 +63,7 @@ class Sidebar extends React.Component {
     handleSubmit(e) {
         console.log(e.keyCode);
         this.setState({ value: e.target.value });
+        console.log(this.state);
         if(e.key === 'Enter'){           
             var list = {
                 id:this.state.lists.length,
@@ -72,7 +72,8 @@ class Sidebar extends React.Component {
             this.setState(state => ({
                 lists: state.lists.concat(list)
               }));
-              console.log(this.state);
+            console.log("hello")
+            console.log(this.state);
         }
     }
 }
@@ -100,7 +101,6 @@ class Task extends React.Component {
             <div className="taskDiv">
                     <div className="task-subParent">
                         <input type="checkbox" className="task-checkbox" id="check"/>
-                        <label for="check"></label>
                         <p className="existingTask"></p>
                     </div>
                 <div className="task-input ">
