@@ -15,7 +15,7 @@ class Body extends React.Component {
             </header>
             <div className="task-content">
               <Sidebar/>
-              <Task/>
+
             </div>
             </div>
           );
@@ -26,13 +26,21 @@ export default App;
 class Sidebar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { lists: [], value:'', sideBarClose:false};
+        this.state = { lists: [], value:'', sideBarClose:false,currentList :{
+            id:0,
+            name:"Tasks",
+            tasks:[],
+            taskLength: 0,
+            isFinished:false
+        }
+    };
         this.addList = this.addList.bind(this);
     }
     render() {
         let sidebarClassname = this.state.sideBarClose ? 'none' : 'sideBarText block';
         let sidebarWidth = this.state.sideBarClose ? 'sideBar closeSideBar' : 'sideBar';
-        return (       
+        return ( 
+            <React.Fragment>
             <div className={sidebarWidth} id="sideBar"> 
                 <a href="#1" id="menu"  className="sidebar-menuIcon" onClick={this.toggleSideMenu.bind(this)}><img src="assets/icons/menu.svg" alt="side-menu" className="menuIconDivision"/></a>
                 <div className="sideBarContent">
@@ -57,9 +65,14 @@ class Sidebar extends React.Component {
                         <p className="defaultTask" > &nbsp;Tasks</p>
                     </div>
                 </div>
-                <div className="sideBarContent" >         
-                    <ShowList className={sidebarClassname} lists = {this.state.lists} ></ShowList>
-                    
+                <div className="sideBarContent" >      
+                        <ul className="list-head">
+                            {this.state.lists.map(list => (
+                            <div key={list.id} className="set-flex"  onClick={this.setCurrentList.bind(this,list)}>
+                            <div><p className="sideBarText"><i className="listIcon"></i></p></div>            
+                            {list.name}<br></br></div>
+                            ))}
+                        </ul>                       
                 </div>             
                 <div className="sideBarContent" >        
                     <div><p><i className="icon plusIcon"></i></p></div>
@@ -68,6 +81,8 @@ class Sidebar extends React.Component {
                     </div>
                 </div>
             </div>
+            <Task list={this.state.currentList}/>
+            </React.Fragment>
         );
     }
 
@@ -88,57 +103,70 @@ class Sidebar extends React.Component {
             this.setState(state => ({
                 lists: state.lists.concat(list)
             }));
-            console.log(this.state)
+            event.target.value = "";
         }
     }
 
-  toggleSideMenu(e) {
-    this.setState({ sideBarClose: !this.state.sideBarClose});
-  }
-}
-
-class ShowList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.showListDetails = this.showListDetails.bind(this);
+    setCurrentList(list) {
+        this.setState({ currentList:list});
     }
-    render() {
-        return (
-          <ul className="list-head">
-            {this.props.lists.map(list => (
-              <div key={list.id} className="set-flex"  onClick={this.showListDetails.bind(this,list)}>
-            <div><p className="sideBarText"><i className="listIcon"></i></p></div>            
-              {list.name}<br></br></div>
-            ))}
-          </ul>
-        );
-    }
-    showListDetails(list) {
-        console.log("dsfdsf",list);
-        return(
-            <h1>dfg</h1>
-        );
+    toggleSideMenu(e) {
+        this.setState({ sideBarClose: !this.state.sideBarClose});
     }
 }
 
 class Task extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentList:this.props.list 
+        };
+        console.log(this.state.currentList);
+    }
+
+    addTask(event) {
+        this.setState({ currentList:this.props.list});
+        if(event.key === 'Enter'){        
+            var task = {
+                id:this.state.currentList.tasks.length,
+                name:event.target.value,
+                subTasks:[],
+                subTaskLength: 0,
+                isFinished:false
+            }
+            const list = {...this.state.currentList};
+            list.tasks.push(task);
+            this.setState(state => ({
+                ...state,
+                currentList: list
+            }));
+            event.target.value = "";
+            console.log(this.state)
+        }
+    }
   render() {
     return (       
-       <div id="taskHead" className="taskHead"><input type="text" value={this.props.name} className="taskSign"/>
+       <div id="taskHead" className="taskHead"><input type="text" value={this.props.list.name} className="taskSign"/>
             <div className="taskDiv">
-                    <div className="task-subParent">
-                        <input type="checkbox" className="task-checkbox" id="check"/>
-                        <p className="existingTask"></p>
-                    </div>
+                <ul className="list-head">
+                    {this.state.currentList.tasks.map(task => (
+                <div key={task.id} className="task-subParent">
+                <input type="checkbox" className="task-checkbox" id="check"/>
+                <p className="existingTask">{task.name}</p></div>
+                    ))}
+                </ul>
+
                 <div className="task-input ">
                     <div><button className="sidebar-Icon addtask-button"><i className="icon plusIcon" aria-hidden="true"></i></button></div>
-                    <div><input type="text" className="inputTask" id="inputTask" placeholder="Add Task"/></div>
+                    <div><input type="text" className="inputTask"  onKeyUp={this.addTask.bind(this)}  id="inputTask" placeholder="Add Task"/></div>
                 </div>
             </div>
         </div>
     );
   }
+
 }
+
 
 
 
